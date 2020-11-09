@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "8XzVE/NFAbakTSFex3IcpEVYYaHxKYC0HBqOQZRkCGttgd7X1VzEQb7gjN1k9VhvHY+RdGlngOm4fAq/V4UAIQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Services\\BankruptcyLaw.Services\\BankruptcyLaw.Services.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ROG STRIX\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.205\\stylecop.analyzers.1.2.0-beta.205.nupkg.sha512",
+    "C:\\Users\\ROG STRIX\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.205\\stylecop.analyzers.unstable.1.2.0.205.nupkg.sha512"
+  ],
+  "logs": []
+}

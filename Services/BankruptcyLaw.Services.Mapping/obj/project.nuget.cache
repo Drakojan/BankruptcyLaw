@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "hgUUmyUn+fQJas/8oqDLJwPaeeHkwHIwK5KH9nOY+ekgvytc3rfV6too3f6G4dhSOJsviiaiqXYHWLWKJP/a7g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Services\\BankruptcyLaw.Services.Mapping\\BankruptcyLaw.Services.Mapping.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ROG STRIX\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\ROG STRIX\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\ROG STRIX\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.205\\stylecop.analyzers.1.2.0-beta.205.nupkg.sha512",
+    "C:\\Users\\ROG STRIX\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.205\\stylecop.analyzers.unstable.1.2.0.205.nupkg.sha512",
+    "C:\\Users\\ROG STRIX\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
