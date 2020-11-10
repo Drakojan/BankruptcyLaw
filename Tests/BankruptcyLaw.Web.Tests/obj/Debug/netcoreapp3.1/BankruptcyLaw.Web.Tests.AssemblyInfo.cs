@@ -12,8 +12,8 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("BankruptcyLaw.Data", "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Data\\BankruptcyLaw.Data", "BankruptcyLaw.Data.csproj", "0")]
-[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("BankruptcyLaw.Web", "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Web\\BankruptcyLaw.Web", "BankruptcyLaw.Web.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("BankruptcyLaw.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Data\\BankruptcyLaw.Data", "BankruptcyLaw.Data.csproj", "0")]
+[assembly: Microsoft.AspNetCore.Mvc.Testing.WebApplicationFactoryContentRootAttribute("BankruptcyLaw.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Web\\BankruptcyLaw.Web", "BankruptcyLaw.Web.csproj", "0")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("BankruptcyLaw.Web.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
