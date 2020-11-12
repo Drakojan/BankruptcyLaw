@@ -8,7 +8,7 @@
 
     using BankruptcyLaw.Data.Common.Models;
     using BankruptcyLaw.Data.Models;
-
+    using BankruptcyLaw.Data.Models.MyDbModels;
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +25,30 @@
         }
 
         public DbSet<Setting> Settings { get; set; }
+
+        public DbSet<Address> Addresses { get; set; }
+
+        public DbSet<Case> Cases { get; set; }
+
+        public DbSet<ClientDocument> ClientDocuments { get; set; }
+
+        public DbSet<CourtDocument> CourtDocuments { get; set; }
+
+        public DbSet<Creditor> Creditors { get; set; }
+
+        public DbSet<Hearing> Hearings { get; set; }
+
+        public DbSet<Judge> Judges { get; set; }
+
+        public DbSet<Note> Notes { get; set; }
+
+        public DbSet<Trustee> Trustees { get; set; }
+
+        public DbSet<CreditorCase> CreditorCases { get; set; }
+
+        public DbSet<Client> Clients { get; set; }
+
+        public DbSet<Attorney> Attorneys { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
@@ -47,6 +71,16 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<ApplicationUser>()
+                .HasOne(a => a.AttorneyUser)
+                .WithOne(a => a.AplicationUser)
+                .HasForeignKey<Attorney>(c => c.AplicationUserId);
+
+            builder.Entity<ApplicationUser>()
+                .HasOne(a => a.ClientUser)
+                .WithOne(a => a.AplicationUser)
+                .HasForeignKey<Client>(c => c.AplicationUserId);
+
             // Needed for Identity models configuration
             base.OnModelCreating(builder);
 

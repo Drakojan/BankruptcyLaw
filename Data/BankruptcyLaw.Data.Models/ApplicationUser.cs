@@ -3,9 +3,10 @@ namespace BankruptcyLaw.Data.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
 
     using BankruptcyLaw.Data.Common.Models;
-
+    using BankruptcyLaw.Data.Models.MyDbModels;
     using Microsoft.AspNetCore.Identity;
 
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
@@ -33,5 +34,26 @@ namespace BankruptcyLaw.Data.Models
         public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
+
+        // 1 to 1 link with attorney OR client entity
+        public string AttorneyUserId { get; set; }
+
+        public virtual Attorney AttorneyUser { get; set; }
+
+        public string ClientUserId { get; set; }
+
+        public virtual Client ClientUser { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        public string FirstName { get; set; }
+
+        [Required]
+        [MaxLength(50)]
+        public string LastName { get; set; }
+
+        public int AddressId { get; set; }
+
+        public virtual Address Address { get; set; }
     }
 }
