@@ -17,6 +17,7 @@ namespace BankruptcyLaw.Data.Models
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
+            this.Hearings = new HashSet<Hearing>();
         }
 
         // Audit info
@@ -35,15 +36,14 @@ namespace BankruptcyLaw.Data.Models
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
 
-        // 1 to 1 link with attorney OR client entity
-        public string AttorneyUserId { get; set; }
+        // 1 to 1 link with attorney OR client entity saved here if I wanted to go back to using two separate entities.
+        // public string AttorneyUserId { get; set; }
 
-        public virtual Attorney AttorneyUser { get; set; }
+        // public virtual Attorney AttorneyUser { get; set; }
 
-        public string ClientUserId { get; set; }
+        // public string ClientUserId { get; set; }
 
-        public virtual Client ClientUser { get; set; }
-
+        // public virtual Client ClientUser { get; set; }
         [Required]
         [MaxLength(50)]
         public string FirstName { get; set; }
@@ -55,5 +55,14 @@ namespace BankruptcyLaw.Data.Models
         public int? AddressId { get; set; }
 
         public virtual Address Address { get; set; }
+
+        public bool IsClient { get; set; } = true;
+
+        public bool IsAttorney { get; set; } = false;
+
+        public ICollection<Hearing> Hearings { get; set; }
+
+        // [RegularExpression(@"^(?!666|000|9\\d{2})\\d{3}-(?!00)\\d{2}-(?!0{4})\\d{4}$")]
+        public string SSN { get; set; }
     }
 }

@@ -9,19 +9,19 @@
 
     public class Client : BaseDeletableModel<string>
     {
-        public Client()
-        {
-            this.Cases = new HashSet<Case>();
-        }
+        //public Client()
+        //{
+        //    this.Cases = new HashSet<Case>();
+        //}
 
-        // [RegularExpression(@"^(?!666|000|9\\d{2})\\d{3}-(?!00)\\d{2}-(?!0{4})\\d{4}$")]
-        public string SSN { get; set; }
+        //// [RegularExpression(@"^(?!666|000|9\\d{2})\\d{3}-(?!00)\\d{2}-(?!0{4})\\d{4}$")]
+        //public string SSN { get; set; }
 
-        public ICollection<Case> Cases { get; set; }
+        //public ICollection<Case> Cases { get; set; }
 
-        [Required]
-        public string AplicationUserId { get; set; }
+        //[Required]
+        //public string AplicationUserId { get; set; }
 
-        public virtual ApplicationUser AplicationUser { get; set; }
+        //public virtual ApplicationUser AplicationUser { get; set; }
     }
 }

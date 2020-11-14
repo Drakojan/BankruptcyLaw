@@ -46,9 +46,9 @@
 
         public DbSet<CreditorCase> CreditorCases { get; set; }
 
-        public DbSet<Client> Clients { get; set; }
+        //public DbSet<Client> Clients { get; set; }
 
-        public DbSet<Attorney> Attorneys { get; set; }
+        //public DbSet<Attorney> Attorneys { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 
@@ -71,15 +71,17 @@
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<ApplicationUser>()
-                .HasOne(a => a.AttorneyUser)
-                .WithOne(a => a.AplicationUser)
-                .HasForeignKey<Attorney>(c => c.AplicationUserId);
+                // uncoment below instructions if you want to switch to using attornies and clients as separate entities.
 
-            builder.Entity<ApplicationUser>()
-                .HasOne(a => a.ClientUser)
-                .WithOne(a => a.AplicationUser)
-                .HasForeignKey<Client>(c => c.AplicationUserId);
+            // builder.Entity<ApplicationUser>()
+            //    .HasOne(a => a.AttorneyUser)
+            //    .WithOne(a => a.AplicationUser)
+            //    .HasForeignKey<Attorney>(c => c.AplicationUserId);
+
+            // builder.Entity<ApplicationUser>()
+            //    .HasOne(a => a.ClientUser)
+            //    .WithOne(a => a.AplicationUser)
+            //    .HasForeignKey<Client>(c => c.AplicationUserId);
 
             // Needed for Identity models configuration
             base.OnModelCreating(builder);

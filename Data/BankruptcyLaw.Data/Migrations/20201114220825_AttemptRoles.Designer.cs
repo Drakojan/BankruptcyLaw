@@ -4,14 +4,16 @@ using BankruptcyLaw.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BankruptcyLaw.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201114220825_AttemptRoles")]
+    partial class AttemptRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -436,12 +438,6 @@ namespace BankruptcyLaw.Data.Migrations
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<double>("AmountOwed")
-                        .HasColumnType("float");
-
-                    b.Property<double>("AmountPaid")
-                        .HasColumnType("float");
 
                     b.Property<int>("CaseId")
                         .HasColumnType("int");

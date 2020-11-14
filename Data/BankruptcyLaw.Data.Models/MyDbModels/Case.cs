@@ -20,11 +20,11 @@
 
         public string ClientId { get; set; }
 
-        public virtual Client Client { get; set; }
+        public virtual ApplicationUser Client { get; set; }
 
         public string AttorneyId { get; set; }
 
-        public virtual Attorney Attorney { get; set; }
+        public virtual ApplicationUser Attorney { get; set; }
 
         public int JudgeId { get; set; }
 

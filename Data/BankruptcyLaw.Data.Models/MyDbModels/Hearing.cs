@@ -17,5 +17,9 @@
         public int? ContinuedHearingId { get; set; }
 
         public virtual Hearing ContinuedHearing { get; set; }
+
+        public string AttorneyId { get; set; }
+
+        public virtual ApplicationUser Attorney { get; set; }
     }
 }
