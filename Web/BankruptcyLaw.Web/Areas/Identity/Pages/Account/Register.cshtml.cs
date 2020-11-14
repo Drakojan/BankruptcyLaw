@@ -52,6 +52,20 @@ namespace BankruptcyLaw.Web.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
             [Required]
+            [StringLength(
+                50,
+                ErrorMessage = "Name must be between 2 and 50 symbols long",
+                MinimumLength = 2)]
+            public string FirstName { get; set; }
+
+            [Required]
+            [StringLength(
+                50,
+                ErrorMessage = "Name must be between 2 and 50 symbols long",
+                MinimumLength = 2)]
+            public string LastName { get; set; }
+
+            [Required]
             [MaxLength(30)]
             [RegularExpression(@"\d{3}-\d{3}-\d{4}",ErrorMessage ="Please enter a phone number in the following format 123-456-7890")]
             public string PhoneNumber { get; set; }
@@ -81,11 +95,20 @@ namespace BankruptcyLaw.Web.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, PhoneNumber= Input.PhoneNumber };
+                var user = new ApplicationUser { 
+                    UserName = Input.Email, 
+                    Email = Input.Email, 
+                    PhoneNumber= Input.PhoneNumber,
+                    FirstName=Input.FirstName,
+                    LastName=Input.LastName,
+                };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    //set role to Client by default. Attorneys are set by the admin.
+                    await this._userManager.AddToRoleAsync(user, "Client");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));

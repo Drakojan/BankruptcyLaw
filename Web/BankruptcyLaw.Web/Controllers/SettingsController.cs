@@ -7,7 +7,7 @@
     using BankruptcyLaw.Data.Models;
     using BankruptcyLaw.Services.Data;
     using BankruptcyLaw.Web.ViewModels.Settings;
-
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
     public class SettingsController : BaseController
@@ -15,11 +15,16 @@
         private readonly ISettingsService settingsService;
 
         private readonly IDeletableEntityRepository<Setting> repository;
+        private readonly UserManager<IdentityUser> userManager;
 
-        public SettingsController(ISettingsService settingsService, IDeletableEntityRepository<Setting> repository)
+        public RoleManager<ApplicationRole> roleManager { get; }
+
+        public SettingsController(ISettingsService settingsService, IDeletableEntityRepository<Setting> repository, UserManager<IdentityUser> userManager, RoleManager<ApplicationRole> roleManager)
         {
             this.settingsService = settingsService;
             this.repository = repository;
+            this.userManager = userManager;
+            this.roleManager = roleManager;
         }
 
         public IActionResult Index()
@@ -38,6 +43,30 @@
             await this.repository.SaveChangesAsync();
 
             return this.RedirectToAction(nameof(this.Index));
+        }
+
+        // playing around
+        public async Task<IActionResult> Test()
+        {
+            var result = await this.userManager.CreateAsync(
+                new ApplicationUser()
+                {
+                    UserName = "niki",
+                    Email = "niki@mail.bg",
+                }, "Nekradss92");
+            
+
+            var result2 = this.roleManager.CreateAsync(new ApplicationRole()
+            {
+                Name = "Attorney",
+            });
+
+            var result3 = this.roleManager.CreateAsync(new ApplicationRole()
+            {
+                Name = "Client",
+            });
+
+            return this.Json(result);
         }
     }
 }

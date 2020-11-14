@@ -52,7 +52,7 @@ namespace BankruptcyLaw.Data.Models
         [MaxLength(50)]
         public string LastName { get; set; }
 
-        public int AddressId { get; set; }
+        public int? AddressId { get; set; }
 
         public virtual Address Address { get; set; }
     }
