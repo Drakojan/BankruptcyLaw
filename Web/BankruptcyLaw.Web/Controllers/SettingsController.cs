@@ -15,11 +15,11 @@
         private readonly ISettingsService settingsService;
 
         private readonly IDeletableEntityRepository<Setting> repository;
-        private readonly UserManager<IdentityUser> userManager;
+        private readonly UserManager<ApplicationUser> userManager;
 
         public RoleManager<ApplicationRole> roleManager { get; }
 
-        public SettingsController(ISettingsService settingsService, IDeletableEntityRepository<Setting> repository, UserManager<IdentityUser> userManager, RoleManager<ApplicationRole> roleManager)
+        public SettingsController(ISettingsService settingsService, IDeletableEntityRepository<Setting> repository, UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager)
         {
             this.settingsService = settingsService;
             this.repository = repository;
@@ -46,26 +46,31 @@
         }
 
         // playing around
-        public async Task<IActionResult> Test()
+        public async Task<IActionResult> Attorney()
         {
-            var result = await this.userManager.CreateAsync(
-                new ApplicationUser()
-                {
-                    UserName = "niki",
-                    Email = "niki@mail.bg",
-                }, "Nekradss92");
-            
+            //var result = await this.userManager.CreateAsync(
+            //    new ApplicationUser()
+            //    {
+            //        UserName = "niki",
+            //        Email = "niki@mail.bg",
+            //    }, "Nekradss92");
 
-            var result2 = this.roleManager.CreateAsync(new ApplicationRole()
-            {
-                Name = "Attorney",
-            });
 
-            var result3 = this.roleManager.CreateAsync(new ApplicationRole()
-            {
-                Name = "Client",
-            });
+            //var result2 = this.roleManager.CreateAsync(new ApplicationRole()
+            //{
+            //    Name = "Attorney",
+            //});
+            var user = await this.userManager.GetUserAsync(this.User);
+            var result = await this.userManager.AddToRoleAsync(user, "Attorney");
+            // await this.userManager.RemoveFromRoleAsync(user, "Client");
 
+            return this.Json(result);
+        }
+
+        public async Task<IActionResult> Admin()
+        {
+            var user = await this.userManager.GetUserAsync(this.User);
+            var result = await this.userManager.AddToRoleAsync(user, "Administrator");
             return this.Json(result);
         }
     }

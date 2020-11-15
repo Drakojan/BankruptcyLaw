@@ -27,6 +27,8 @@
                           {
                               new RolesSeeder(),
                               new SettingsSeeder(),
+                              new AddressesSeeder(),
+                              new MainDbInfoSeeder(),
                           };
 
             foreach (var seeder in seeders)

@@ -1,4 +1,4 @@
-﻿namespace BankruptcyLaw.Data.Models
+﻿namespace BankruptcyLaw.Data.Models.MyDbModels
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
