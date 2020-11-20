@@ -2694,7 +2694,8 @@
         "dependencies": {
           "BankruptcyLaw.Data.Common": "1.0.0",
           "BankruptcyLaw.Data.Models": "1.0.0",
-          "BankruptcyLaw.Services.Mapping": "1.0.0"
+          "BankruptcyLaw.Services.Mapping": "1.0.0",
+          "BankruptcyLaw.Web.ViewModels": "1.0.0"
         },
         "compile": {
           "bin/placeholder/BankruptcyLaw.Services.Data.dll": {}
@@ -2714,6 +2715,20 @@
         },
         "runtime": {
           "bin/placeholder/BankruptcyLaw.Services.Mapping.dll": {}
+        }
+      },
+      "BankruptcyLaw.Web.ViewModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "BankruptcyLaw.Data.Models": "1.0.0",
+          "BankruptcyLaw.Services.Mapping": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BankruptcyLaw.Web.ViewModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BankruptcyLaw.Web.ViewModels.dll": {}
         }
       }
     }
@@ -8636,6 +8651,11 @@
       "type": "project",
       "path": "../../Services/BankruptcyLaw.Services.Mapping/BankruptcyLaw.Services.Mapping.csproj",
       "msbuildProject": "../../Services/BankruptcyLaw.Services.Mapping/BankruptcyLaw.Services.Mapping.csproj"
+    },
+    "BankruptcyLaw.Web.ViewModels/1.0.0": {
+      "type": "project",
+      "path": "../../Web/BankruptcyLaw.Web.ViewModels/BankruptcyLaw.Web.ViewModels.csproj",
+      "msbuildProject": "../../Web/BankruptcyLaw.Web.ViewModels/BankruptcyLaw.Web.ViewModels.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -8675,6 +8695,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
             "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Data\\BankruptcyLaw.Data\\BankruptcyLaw.Data.csproj": {
               "projectPath": "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Data\\BankruptcyLaw.Data\\BankruptcyLaw.Data.csproj"
@@ -8693,6 +8714,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.EntityFrameworkCore.InMemory": {
             "target": "Package",
@@ -8738,7 +8760,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

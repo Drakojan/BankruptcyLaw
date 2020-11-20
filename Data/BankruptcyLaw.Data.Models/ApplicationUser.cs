@@ -56,9 +56,10 @@ namespace BankruptcyLaw.Data.Models
 
         public virtual Address Address { get; set; }
 
-        public bool IsClient { get; set; } = true;
+        // I think I won't need the bools below. 
+        // public bool IsClient { get; set; } = true;
 
-        public bool IsAttorney { get; set; } = false;
+        // public bool IsAttorney { get; set; } = false;
 
         public ICollection<Hearing> Hearings { get; set; }
 

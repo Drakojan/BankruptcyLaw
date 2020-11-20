@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,7 @@
       },
       "frameworks": {
         "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "dependencies": {
             "StyleCop.Analyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
@@ -64,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -90,6 +92,7 @@
         },
         "frameworks": {
           "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
             "projectReferences": {
               "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Data\\BankruptcyLaw.Data.Common\\BankruptcyLaw.Data.Common.csproj": {
                 "projectPath": "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Data\\BankruptcyLaw.Data.Common\\BankruptcyLaw.Data.Common.csproj"
@@ -105,6 +108,7 @@
       },
       "frameworks": {
         "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
@@ -132,7 +136,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -158,6 +162,7 @@
         },
         "frameworks": {
           "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
             "projectReferences": {
               "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Data\\BankruptcyLaw.Data.Common\\BankruptcyLaw.Data.Common.csproj": {
                 "projectPath": "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Data\\BankruptcyLaw.Data.Common\\BankruptcyLaw.Data.Common.csproj"
@@ -167,6 +172,9 @@
               },
               "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Services\\BankruptcyLaw.Services.Mapping\\BankruptcyLaw.Services.Mapping.csproj": {
                 "projectPath": "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Services\\BankruptcyLaw.Services.Mapping\\BankruptcyLaw.Services.Mapping.csproj"
+              },
+              "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Web\\BankruptcyLaw.Web.ViewModels\\BankruptcyLaw.Web.ViewModels.csproj": {
+                "projectPath": "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Web\\BankruptcyLaw.Web.ViewModels\\BankruptcyLaw.Web.ViewModels.csproj"
               }
             }
           }
@@ -179,6 +187,7 @@
       },
       "frameworks": {
         "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "dependencies": {
             "StyleCop.Analyzers": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers",
@@ -202,7 +211,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
@@ -228,6 +237,7 @@
         },
         "frameworks": {
           "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
             "projectReferences": {}
           }
         },
@@ -239,6 +249,7 @@
       },
       "frameworks": {
         "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
@@ -266,7 +277,76 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Web\\BankruptcyLaw.Web.ViewModels\\BankruptcyLaw.Web.ViewModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Web\\BankruptcyLaw.Web.ViewModels\\BankruptcyLaw.Web.ViewModels.csproj",
+        "projectName": "BankruptcyLaw.Web.ViewModels",
+        "projectPath": "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Web\\BankruptcyLaw.Web.ViewModels\\BankruptcyLaw.Web.ViewModels.csproj",
+        "packagesPath": "C:\\Users\\ROG STRIX\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Web\\BankruptcyLaw.Web.ViewModels\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\ROG STRIX\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Data\\BankruptcyLaw.Data.Models\\BankruptcyLaw.Data.Models.csproj": {
+                "projectPath": "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Data\\BankruptcyLaw.Data.Models\\BankruptcyLaw.Data.Models.csproj"
+              },
+              "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Services\\BankruptcyLaw.Services.Mapping\\BankruptcyLaw.Services.Mapping.csproj": {
+                "projectPath": "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Services\\BankruptcyLaw.Services.Mapping\\BankruptcyLaw.Services.Mapping.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "StyleCop.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.2.0-beta.205, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

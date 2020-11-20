@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\BankruptcyLaw.Data.Common\BankruptcyLaw.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\BankruptcyLaw.Data.Models\BankruptcyLaw.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Web\BankruptcyLaw.Web.ViewModels\BankruptcyLaw.Web.ViewModels.csproj" />
     <ProjectReference Include="..\BankruptcyLaw.Services.Mapping\BankruptcyLaw.Services.Mapping.csproj" />
   </ItemGroup>
 

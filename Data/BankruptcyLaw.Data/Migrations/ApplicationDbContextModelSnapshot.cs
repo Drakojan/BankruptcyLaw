@@ -93,12 +93,6 @@ namespace BankruptcyLaw.Data.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<bool>("IsAttorney")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsClient")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
