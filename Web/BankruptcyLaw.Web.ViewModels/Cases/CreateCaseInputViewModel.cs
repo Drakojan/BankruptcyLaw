@@ -28,8 +28,6 @@
         [Required]
         public string CaseNumber { get; set; }
 
-        // public string CaseStatus { get; set; }
-
         [PastDateAttribute(ErrorMessage = "The date is required and has to be in the past")]
         [Display(Name ="When was the case filed with the court?")]
         public DateTime DateFiled { get; set; }

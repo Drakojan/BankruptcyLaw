@@ -1,0 +1,8 @@
+﻿@model BankruptcyLaw.Web.ViewModels.Cases.CreateCaseInputViewModel
+@{
+    ViewData["Title"] = "All Cases";
+    var judges = this.Model.Judges.Select(x => new SelectListItem(x.Value, x.Key.ToString()));
+    var trustees = this.Model.Trustees.Select(x => new SelectListItem(x.Value, x.Key.ToString()));
+}
+
+<h1>@this.ViewData["Title"]</h1>

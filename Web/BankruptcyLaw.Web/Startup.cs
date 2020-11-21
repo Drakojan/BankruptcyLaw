@@ -69,6 +69,7 @@
             services.AddTransient<ICasesService, CasesService>();
             services.AddTransient<ITrusteesService, TrusteesService>();
             services.AddTransient<IAddressesService, AddressesService>();
+            services.AddTransient<IClientsService, ClientsService>();
 
         }
 

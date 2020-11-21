@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using BankruptcyLaw.Services.Data;
+using BankruptcyLaw.Web.ViewModels.Clients;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,22 +11,23 @@ namespace BankruptcyLaw.Web.Controllers
 {
     public class ClientsController : BaseController
     {
-        public ClientsController()
-        {
+        private IClientsService clientsService;
 
+        public ClientsController(IClientsService clientsService)
+        {
+            this.clientsService = clientsService;
         }
 
         [Authorize(Roles = "Attorney")]
-        public IActionResult All()
+        public IActionResult All(int id = 1)
         {
-            //var viewModel = new CreateCaseInputViewModel
-            //{
-            //    Judges = this.judgesService.GetJudgesNamesAndIds(),
-            //    Trustees = this.trusteeService.GetTrusteesNamesAndIds(),
-            //    AttorneyId = this.User.FindFirstValue(ClaimTypes.NameIdentifier),
-            //};
+            var viewModel = new AllClientsViewModelPagination()
+            {
+                Clients = this.clientsService.GetAll<SingleClientViewModel>(id, 5),
+                CurrentPage = id,
+            };
 
-            return this.View();
+            return this.View(viewModel);
         }
     }
 }

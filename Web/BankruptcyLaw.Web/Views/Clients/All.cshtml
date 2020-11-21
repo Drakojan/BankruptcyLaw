@@ -1,0 +1,68 @@
+﻿@model BankruptcyLaw.Web.ViewModels.Clients.AllClientsViewModelPagination
+@{
+    ViewData["Title"] = "All Clients";
+}
+@*public string Email { get; set; }
+
+    public string PhoneNumber { get; set; }
+
+    public string FirstName { get; set; }
+
+    public string LastName { get; set; }
+
+    public string SSN { get; set; }
+
+    public AddressViewModel Address { get; set; }*@
+<h1>@this.ViewData["Title"]</h1>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">SSN</th>
+                        <th align="center" scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var client in Model.Clients)
+                    {
+                        <tr>
+                            <td>@client.FirstName</td>
+                            <td>@client.LastName</td>
+                            <td>@client.Email</td>
+                            <td>@client.PhoneNumber</td>
+                            <td>@client.SSN</td>
+                            <td>
+                                <a type="button" class="btn btn-success" href="/Cases/Create">Add Case</a>
+                                <a type="button" class="btn btn-primary" href="/Cases/Create">View Cases</a>
+                                <a type="button" class="btn btn-danger" href="/Cases/Create">Delete Profile</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<nav aria-label="...">
+    <ul class="pagination">
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active">
+            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+</nav>

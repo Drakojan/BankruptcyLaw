@@ -30,6 +30,9 @@
                 Judges = this.judgesService.GetJudgesNamesAndIds(),
                 Trustees = this.trusteeService.GetTrusteesNamesAndIds(),
                 AttorneyId = this.User.FindFirstValue(ClaimTypes.NameIdentifier),
+
+                // this.User.FindFirst(ClaimTypes.NameIdentifier).Value
+                // this.userManager.GetUserAsync(this.user).Id
             };
 
             return this.View(viewModel);
