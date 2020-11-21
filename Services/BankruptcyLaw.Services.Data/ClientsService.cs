@@ -22,14 +22,17 @@
         public IEnumerable<T> GetAll<T>(int page, int itemsPerPage)
         {
             {
-
                 return this.usersRepository.AllAsNoTracking().Where(x => x.Roles.Count == 1)
                             .OrderByDescending(x => x.CreatedOn)
                             .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
                             .To<T>()
                             .ToList();
             }
+        }
 
+        public int GetClientsTotal()
+        {
+            return this.usersRepository.AllAsNoTracking().Where(x => x.Roles.Count == 1).Count();
         }
     }
 }

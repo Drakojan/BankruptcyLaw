@@ -1,14 +1,10 @@
-﻿using BankruptcyLaw.Services.Data;
-using BankruptcyLaw.Web.ViewModels.Clients;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BankruptcyLaw.Web.Controllers
+﻿namespace BankruptcyLaw.Web.Controllers
 {
+    using BankruptcyLaw.Services.Data;
+    using BankruptcyLaw.Web.ViewModels.Clients;
+    using Microsoft.AspNetCore.Authorization;
+    using Microsoft.AspNetCore.Mvc;
+
     public class ClientsController : BaseController
     {
         private IClientsService clientsService;
@@ -21,10 +17,14 @@ namespace BankruptcyLaw.Web.Controllers
         [Authorize(Roles = "Attorney")]
         public IActionResult All(int id = 1)
         {
+            const int itemsPerPage = 2;
+
             var viewModel = new AllClientsViewModelPagination()
             {
-                Clients = this.clientsService.GetAll<SingleClientViewModel>(id, 5),
-                CurrentPage = id,
+                Clients = this.clientsService.GetAll<SingleClientViewModel>(id, itemsPerPage),
+                CurrentPageNumber = id,
+                ItemsPerPage = itemsPerPage,
+                ClientsTotalCount = this.clientsService.GetClientsTotal(),
             };
 
             return this.View(viewModel);
