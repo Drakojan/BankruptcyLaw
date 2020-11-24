@@ -14,7 +14,7 @@
             this.clientsService = clientsService;
         }
 
-        [Authorize(Roles = "Attorney")]
+        [Authorize(Roles = "Attorney, Administrator")]
         public IActionResult All(int id = 1)
         {
             const int itemsPerPage = 2;

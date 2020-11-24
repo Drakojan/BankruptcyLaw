@@ -15,13 +15,8 @@
             <span asp-validation-for="CaseNumber" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="ClientName"></label>
-            <input asp-for="ClientName" class="form-control">
-            <span asp-validation-for="ClientName" class="text-danger"></span>
-        </div>
-        <div class="form-group">
             <label asp-for="DateFiled"></label>
-            <input type="date" asp-for="DateFiled" class="form-control">
+            <input type="date" asp-for="DateFiled" class="form-control" value="@DateTime.UtcNow">
             <span asp-validation-for="DateFiled" class="text-danger"></span>
         </div>
         <div class="form-group">

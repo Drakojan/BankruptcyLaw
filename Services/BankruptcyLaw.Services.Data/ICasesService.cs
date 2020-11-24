@@ -1,11 +1,11 @@
 ﻿namespace BankruptcyLaw.Services.Data
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
+    using System.Threading.Tasks;
+
+    using BankruptcyLaw.Web.ViewModels.Cases;
 
     public interface ICasesService
     {
-        public void CreateCase();
+        public Task CreateCaseAsync(string clientId, CreateCaseInputViewModel input);
     }
 }

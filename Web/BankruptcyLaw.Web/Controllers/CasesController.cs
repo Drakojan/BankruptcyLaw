@@ -1,9 +1,10 @@
 ﻿namespace BankruptcyLaw.Web.Controllers
 {
     using System.Security.Claims;
-
+    using System.Threading.Tasks;
     using BankruptcyLaw.Data.Models;
     using BankruptcyLaw.Services.Data;
+    using BankruptcyLaw.Web.ViewModels;
     using BankruptcyLaw.Web.ViewModels.Cases;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
@@ -14,15 +15,17 @@
         private UserManager<ApplicationUser> userManager;
         private readonly IJudgesService judgesService;
         private readonly ITrusteesService trusteeService;
+        private readonly ICasesService casesService;
 
-        public CasesController(IJudgesService judgesService, ITrusteesService trusteeService, UserManager<ApplicationUser> userManager)
+        public CasesController(IJudgesService judgesService, ITrusteesService trusteeService, UserManager<ApplicationUser> userManager, ICasesService casesService)
         {
             this.userManager = userManager;
             this.judgesService = judgesService;
             this.trusteeService = trusteeService;
+            this.casesService = casesService;
         }
 
-        [Authorize(Roles = "Attorney")]
+        [Authorize(Roles = "Attorney, Administrator")]
         public IActionResult Create()
         {
             var viewModel = new CreateCaseInputViewModel
@@ -39,10 +42,17 @@
         }
 
         [HttpPost]
-        [Authorize(Roles ="Attorney")]
-        public IActionResult Create(CreateCaseInputViewModel input)
+        [Authorize(Roles = "Attorney, Administrator")]
+        public async Task<IActionResult> Create(string clientId, CreateCaseInputViewModel input)
         {
-            return this.View(input);
+            if (!this.ModelState.IsValid)
+            {
+                return this.View("Error", new ErrorViewModel() { RequestId = null });
+            }
+
+            await this.casesService.CreateCaseAsync(clientId, input);
+
+            return this.Json(input);
         }
     }
 }

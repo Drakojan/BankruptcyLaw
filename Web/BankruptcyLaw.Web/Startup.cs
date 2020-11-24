@@ -1,7 +1,6 @@
 ﻿namespace BankruptcyLaw.Web
 {
     using System.Reflection;
-
     using BankruptcyLaw.Data;
     using BankruptcyLaw.Data.Common;
     using BankruptcyLaw.Data.Common.Repositories;
@@ -70,7 +69,6 @@
             services.AddTransient<ITrusteesService, TrusteesService>();
             services.AddTransient<IAddressesService, AddressesService>();
             services.AddTransient<IClientsService, ClientsService>();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
