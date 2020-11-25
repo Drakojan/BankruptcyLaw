@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-
+    using System.ComponentModel.DataAnnotations.Schema;
     using BankruptcyLaw.Data.Common.Models;
     using BankruptcyLaw.Data.Models.MyDbModels;
 
@@ -20,6 +20,9 @@
         [Required]
         [MaxLength(50)]
         public string LastName { get; set; }
+
+        [NotMapped]
+        public string FullName => this.FirstName + " " + this.LastName;
 
         [Required]
         [MaxLength(30)]

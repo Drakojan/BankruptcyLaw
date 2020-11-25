@@ -16,15 +16,15 @@
         public string AttorneyId { get; set; }
 
         [Required]
+        [Display(Name = "Please select the presiding Judge")]
         public string JudgeId { get; set; }
 
         [Required]
+        [Display(Name = "Please select the presiding Trustee")]
         public string TrusteeId { get; set; }
 
-        [Display(Name = "Please select the presiding Judge")]
         public IEnumerable<KeyValuePair<int, string>> Judges { get; set; }
 
-        [Display(Name = "Please select the presiding Trustee")]
         public IEnumerable<KeyValuePair<int, string>> Trustees { get; set; }
 
         [Required]

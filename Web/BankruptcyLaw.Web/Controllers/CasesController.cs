@@ -54,5 +54,13 @@
 
             return this.Json(input);
         }
+
+        [Authorize]
+        public IActionResult AllClientCases(string clientName, string clientId)
+        {
+            AllClientCasesViewModel model = this.casesService.GetAllCasesForClient(clientId, clientName);
+
+            return this.View(model);
+        }
     }
 }

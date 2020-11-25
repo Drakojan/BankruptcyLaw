@@ -1,0 +1,43 @@
+﻿@model BankruptcyLaw.Web.ViewModels.Cases.AllClientCasesViewModel
+@{
+    ViewData["Title"] = $"All Cases for {Model.ClientName}";
+}
+
+<h1>@this.ViewData["Title"]</h1>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">DateFiled</th>
+                        <th scope="col">CaseNumber</th>
+                        <th scope="col">CaseStatus</th>
+                        <th scope="col">AttorneyName</th>
+                        <th scope="col">JudgeName</th>
+                        <th scope="col">TrusteeName</th>
+                        <th align="center" scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var c in Model.Cases)
+                    {
+                        <tr>
+                            <td>@c.DateFiled</td>
+                            <td>@c.CaseNumber</td>
+                            <td>@c.CaseStatus</td>
+                            <td>@c.AttorneyName</td>
+                            <td>@c.JudgeName</td>
+                            <td>@c.TrusteeName</td>
+                            <td>
+                                <a type="button" class="btn btn-success" href="/Cases/Create?ClientId=@c.CaseId">See Case</a>
+                                <a type="button" class="btn btn-danger" href="/Cases/Create?ClientId=@c.CaseId">Delete Case</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -40,7 +40,8 @@
                             <td>@client.SSN</td>
                             <td>
                                 <a type="button" class="btn btn-success" href="/Cases/Create?ClientId=@client.Id">Add Case</a>
-                                <a type="button" class="btn btn-primary" href="/Cases/Create?ClientId=@client.Id">View Cases</a>
+                                <a type="button" class="btn btn-primary" 
+                                   href="/Cases/AllClientCases?ClientId=@client.Id&ClientName=@client.FirstName @client.LastName">View Cases</a>
                                 <a type="button" class="btn btn-danger" href="/Cases/Create?ClientId=@client.Id">Delete Profile</a>
                             </td>
                         </tr>

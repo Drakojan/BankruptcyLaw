@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
             <label asp-for="DateFiled"></label>
-            <input type="date" asp-for="DateFiled" class="form-control" value="@DateTime.UtcNow">
+            <input type="date" asp-for="DateFiled" class="form-control" value="@DateTime.UtcNow.ToString("yyyy-MM-dd")">
             <span asp-validation-for="DateFiled" class="text-danger"></span>
         </div>
         <div class="form-group">

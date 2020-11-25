@@ -3,15 +3,13 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
+    using System.Threading.Tasks;
 
     using BankruptcyLaw.Data.Common.Repositories;
+    using BankruptcyLaw.Data.Models;
     using BankruptcyLaw.Data.Models.MyDbModels;
-    using BankruptcyLaw.Web.ViewModels.Cases;
-
-    using AutoMapper;
-    using System.Threading.Tasks;
     using BankruptcyLaw.Services.Mapping;
+    using BankruptcyLaw.Web.ViewModels.Cases;
 
     public class CasesService : ICasesService
     {
@@ -34,7 +32,35 @@
             await this.casesRepository.SaveChangesAsync();
         }
 
-        public IEnumerable<AllCasesViewModelPagination> GetAll(int page, int itemsPerPage)
+        public AllClientCasesViewModel GetAllCasesForClient(string clientId, string clientName)
+        {
+            var cases = this.casesRepository.AllAsNoTracking()
+                .Where(x => x.ClientId == clientId)
+                .Select(x => new SingleCaseViewModel()
+                {
+                    CaseStatus = x.CaseStatus.ToString(),
+                    CaseId = x.Id,
+                    CaseNumber = x.CaseNumber,
+                    AttorneyName = x.Attorney.FullName,
+                    JudgeName = x.Judge.FullName,
+                    TrusteeName = x.Trustee.FullName,
+                    DateFiled = x.DateFiled,
+                })
+                .ToList()
+                .OrderByDescending(x => x.DateFiled);
+
+            var result = new AllClientCasesViewModel()
+            {
+                ClientId = clientId,
+                Cases = cases,
+                ClientName = clientName,
+            };
+
+            return result;
+        }
+
+        // pagination prospect
+        public IEnumerable<AllClientCasesViewModel> GetAll(int page, int itemsPerPage)
         {
             var result = this.casesRepository.AllAsNoTracking()
                 .OrderByDescending(x => x.CreatedOn)
