@@ -20,7 +20,7 @@
             this.casesRepository = casesRepository;
         }
 
-        public async Task CreateCaseAsync(string clientId, CreateCaseInputViewModel input)
+        public async Task<string> CreateCaseAsync(string clientId, CreateCaseInputViewModel input)
         {
             var mapper = AutoMapperConfig.MapperInstance;
             var newCase = mapper.Map<Case>(input);
@@ -30,6 +30,8 @@
             await this.casesRepository.AddAsync(newCase);
 
             await this.casesRepository.SaveChangesAsync();
+
+            return newCase.Id;
         }
 
         public AllClientCasesViewModel GetAllCasesForClient(string clientId, string clientName)
@@ -57,6 +59,15 @@
             };
 
             return result;
+        }
+
+        public async Task DeleteCaseByIdAsync(string caseId)
+        {
+            var caseToDelete = this.casesRepository.AllAsNoTracking().FirstOrDefault(x => x.Id == caseId);
+
+            this.casesRepository.Delete(caseToDelete);
+
+            await this.casesRepository.SaveChangesAsync();
         }
 
         // pagination prospect

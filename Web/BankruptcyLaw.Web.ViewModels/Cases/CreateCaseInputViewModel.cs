@@ -28,6 +28,7 @@
         public IEnumerable<KeyValuePair<int, string>> Trustees { get; set; }
 
         [Required]
+        [Display(Name = "Case Number")]
         public string CaseNumber { get; set; }
 
         [PastDateAttribute(ErrorMessage = "The date is required and has to be in the past")]

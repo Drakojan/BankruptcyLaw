@@ -47,12 +47,27 @@
         {
             if (!this.ModelState.IsValid)
             {
+                // TODO: see why validation is not working 
                 return this.View("Error", new ErrorViewModel() { RequestId = null });
             }
 
-            await this.casesService.CreateCaseAsync(clientId, input);
+            string caseId = await this.casesService.CreateCaseAsync(clientId, input);
 
-            return this.Json(input);
+            return this.RedirectToAction("CaseDetails", new { clientId, caseId });
+        }
+
+        [Authorize(Roles = "Attorney, Administrator")]
+        public async Task<IActionResult> Delete(string caseId, string clientName, string clientId)
+        {
+            await this.casesService.DeleteCaseByIdAsync(caseId);
+
+            return this.RedirectToAction("AllClientCases", new { clientName, clientId });
+
+        }
+
+        public IActionResult CaseDetails(string caseId, string clientId)
+        {
+            return this.View();
         }
 
         [Authorize]

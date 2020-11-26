@@ -24,15 +24,16 @@
                     @foreach (var c in Model.Cases)
                     {
                         <tr>
-                            <td>@c.DateFiled</td>
+                            <td>@c.DateFiled.Date.ToString("yyyy-MM-dd")</td>
                             <td>@c.CaseNumber</td>
                             <td>@c.CaseStatus</td>
                             <td>@c.AttorneyName</td>
                             <td>@c.JudgeName</td>
                             <td>@c.TrusteeName</td>
                             <td>
-                                <a type="button" class="btn btn-success" href="/Cases/Create?ClientId=@c.CaseId">See Case</a>
-                                <a type="button" class="btn btn-danger" href="/Cases/Create?ClientId=@c.CaseId">Delete Case</a>
+                                <a type="button" class="btn btn-success" href="/Cases/CaseDetails?CaseId=@c.CaseId">See Case</a>
+                                <a type="button" class="btn btn-danger" 
+                                   href="/Cases/Delete?CaseId=@c.CaseId&clientId=@Model.ClientId&clientName=@Model.ClientName">Delete Case</a>
                             </td>
                         </tr>
                     }

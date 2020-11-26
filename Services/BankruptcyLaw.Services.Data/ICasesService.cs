@@ -6,8 +6,10 @@
 
     public interface ICasesService
     {
-        public Task CreateCaseAsync(string clientId, CreateCaseInputViewModel input);
+        public Task<string> CreateCaseAsync(string clientId, CreateCaseInputViewModel input);
 
         public AllClientCasesViewModel GetAllCasesForClient(string clientId, string clientName);
+
+        public Task DeleteCaseByIdAsync(string caseId);
     }
 }
