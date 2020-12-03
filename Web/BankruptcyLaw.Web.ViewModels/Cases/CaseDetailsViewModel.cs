@@ -9,6 +9,8 @@
     {
         public string CaseId { get; set; }
 
+        public string ClientId { get; set; }
+
         [Display(Name = "Attorney")]
         public string AttorneyName { get; set; }
 

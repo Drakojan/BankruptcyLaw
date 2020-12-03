@@ -19,5 +19,9 @@
         public string OriginalPoster { get; set; }
 
         public string RedactionPoster { get; set; }
+
+        public string CaseId { get; set; }
+
+        public virtual Case Case { get; set; }
     }
 }

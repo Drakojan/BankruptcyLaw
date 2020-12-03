@@ -5,7 +5,7 @@
 
 <h1>@this.ViewData["Title"]</h1>
 
-<h1>Welcome From new Case</h1>
+<hr />
 
 <table class="table table-striped">
     <thead>
@@ -20,12 +20,12 @@
     </thead>
     <tbody>
         <tr>
-            <td>DateFiled</td>
-            <td>CaseNumber</td>
-            <td>CaseStatus</td>
-            <td>AttorneyName</td>
-            <td>JudgeName</td>
-            <td>TrusteeName</td>
+            <td>@Model.DateFiled.Date.ToString("yyyy-MM-dd")</td>
+            <td>@Model.CaseNumber</td>
+            <td>@Model.CaseStatus</td>
+            <td>@Model.AttorneyName</td>
+            <td>@Model.JudgeName</td>
+            <td>@Model.TrusteeName</td>
         </tr>
     </tbody>
 </table>
@@ -35,9 +35,82 @@
         <button type="button" class="btn btn-secondary">View Client Documents</button>
         <button type="button" class="btn btn-secondary">View Creditors</button>
     </div>
-    <div class="col-lg-9">
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"> Note 1</textarea>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Note 2</textarea>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Note 3</textarea>
+    <div class="col-lg-9" id="NotesBox">
+        <textarea class="form-control" rows="3">Note 1</textarea>
+        <textarea class="form-control" rows="3">Note 2</textarea>
+        <textarea class="form-control" rows="3">Note 3</textarea>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            Add a new Note
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Add a new Note</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    @*<form action="/Notes/Create?CaseId=@Model.CaseId" method="post">*@
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <textarea id="newNote" rows="6" class="form-control" aria-label="With textarea"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" onclick="CreateNote()" class="btn btn-primary" data-dismiss="modal" href="">Add Note</button>
+                    </div>
+                    @*</form>*@
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+<form method="post" id="antiForgeryForm"></form>
+@section Scripts {
+    <script>
+        function CreateNote() {
+            var newNoteContent = document.getElementById('newNote').value;
+            document.getElementById('newNote').value = '';
+
+            var notesBox = document.getElementById('NotesBox')
+
+            var newNote = document.createElement("textarea")
+            newNote.setAttribute("class", "form-control")
+            newNote.setAttribute("rows", "3")
+            newNote.value = newNoteContent
+
+            notesBox.prepend(newNote);
+
+            var antiForgeryToken = $('#antiForgeryForm input[name=__RequestVerificationToken]').val();
+            console.log(antiForgeryToken);
+            var data = {
+                CaseId: "@Model.CaseId",
+                Content: newNoteContent,
+                CreatorName: '',
+            }
+
+            fetch(`/api/Notes`, {
+
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'X-CSRF-TOKEN': antiForgeryToken,
+                    'content-type': 'application/json',
+                },
+            })
+
+        }</script>>
+    @*public string CaseId { get; set; }
+
+        public string Username { get; set; }
+
+        public string Content { get; set; }*@
+}

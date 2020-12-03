@@ -65,9 +65,11 @@
 
         }
 
-        public IActionResult CaseDetails(string caseId, string clientId)
+        public IActionResult CaseDetails(string caseId)
         {
-            return this.View();
+            var model = this.casesService.GetCaseById(caseId);
+
+            return this.View(model);
         }
 
         [Authorize]

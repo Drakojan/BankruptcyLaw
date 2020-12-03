@@ -11,5 +11,7 @@
         public AllClientCasesViewModel GetAllCasesForClient(string clientId, string clientName);
 
         public Task DeleteCaseByIdAsync(string caseId);
+
+        public CaseDetailsViewModel GetCaseById(string caseId);
     }
 }

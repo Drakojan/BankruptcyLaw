@@ -70,6 +70,26 @@
             await this.casesRepository.SaveChangesAsync();
         }
 
+        public CaseDetailsViewModel GetCaseById(string caseId)
+        {
+            var result = this.casesRepository.AllAsNoTracking()
+                .Where(x => x.Id == caseId)
+                .Select(x => new CaseDetailsViewModel()
+                {
+                    AttorneyName = x.Attorney.FullName,
+                    DateFiled = x.DateFiled,
+                    CaseNumber = x.CaseNumber,
+                    CaseStatus = x.CaseStatus.ToString(),
+                    JudgeName = x.Judge.FullName,
+                    TrusteeName = x.Trustee.FullName,
+                    CaseId = caseId,
+                    ClientId = x.ClientId,
+                })
+                .FirstOrDefault();
+
+            return result;
+        }
+
         // pagination prospect
         public IEnumerable<AllClientCasesViewModel> GetAll(int page, int itemsPerPage)
         {

@@ -50,9 +50,13 @@
             services.AddControllersWithViews(
                 options =>
                     {
-                        options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+                        options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()); // CSRF protection
                     }).AddRazorRuntimeCompilation();
             services.AddRazorPages();
+            services.AddAntiforgery(options =>
+            {
+                options.HeaderName = "X-CSRF-TOKEN";
+            });
 
             services.AddSingleton(this.configuration);
 
@@ -69,6 +73,7 @@
             services.AddTransient<ITrusteesService, TrusteesService>();
             services.AddTransient<IAddressesService, AddressesService>();
             services.AddTransient<IClientsService, ClientsService>();
+            services.AddTransient<INotesService, NotesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
