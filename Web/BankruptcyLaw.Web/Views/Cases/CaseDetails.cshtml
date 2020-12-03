@@ -30,20 +30,22 @@
     </tbody>
 </table>
 <div class="row mt-4 mb-4">
-    <div class="btn-group-vertical col-lg-3">
+    <div class="btn-group-vertical col-lg-3 align-self-lg-start">
         <button type="button" class="btn btn-secondary">View Court Documents</button>
         <button type="button" class="btn btn-secondary">View Client Documents</button>
         <button type="button" class="btn btn-secondary">View Creditors</button>
-    </div>
-    <div class="col-lg-9" id="NotesBox">
-        <textarea class="form-control" rows="3">Note 1</textarea>
-        <textarea class="form-control" rows="3">Note 2</textarea>
-        <textarea class="form-control" rows="3">Note 3</textarea>
-
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
             Add a new Note
         </button>
+    </div>
+    <div class="col-lg-9" id="NotesBox">
+        @foreach (var note in Model.Notes)
+        {
+            //TODO: implement pagination for notes. After that is done the JavaScript may have to be adjusted too. 
+            <textarea style="resize:none" readonly class="form-control" rows="3">@note.Content</textarea>
+            <input readonly class="form-control" value="Note left by @note.OriginalPoster on @note.CreatedOn" />
+        }
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -55,7 +57,6 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    @*<form action="/Notes/Create?CaseId=@Model.CaseId" method="post">*@
                     <div class="modal-body">
                         <div class="form-group">
                             <div class="input-group">
@@ -67,7 +68,6 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         <button type="button" onclick="CreateNote()" class="btn btn-primary" data-dismiss="modal" href="">Add Note</button>
                     </div>
-                    @*</form>*@
                 </div>
             </div>
         </div>
@@ -108,9 +108,4 @@
             })
 
         }</script>>
-    @*public string CaseId { get; set; }
-
-        public string Username { get; set; }
-
-        public string Content { get; set; }*@
 }

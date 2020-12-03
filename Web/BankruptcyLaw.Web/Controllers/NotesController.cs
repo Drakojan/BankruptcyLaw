@@ -23,10 +23,10 @@
 
         [HttpPost]
         [Authorize(Roles="Attorney")]
-        public async Task<IActionResult> Create(CreateNoteInputViewModel input)
+        public async Task<IActionResult> Create(NoteViewModel input)
         {
             var username = this.User.Identity.Name;
-            input.CreatorName = username;
+            input.OriginalPoster = username;
 
             await this.notesService.CreateNoteAsync(input);
             return this.Ok();

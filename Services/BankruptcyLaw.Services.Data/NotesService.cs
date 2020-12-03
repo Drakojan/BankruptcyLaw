@@ -1,13 +1,14 @@
-﻿using BankruptcyLaw.Data.Common.Repositories;
-using BankruptcyLaw.Data.Models.MyDbModels;
-using BankruptcyLaw.Web.ViewModels.Notes;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BankruptcyLaw.Services.Data
+﻿namespace BankruptcyLaw.Services.Data
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using BankruptcyLaw.Data.Common.Repositories;
+    using BankruptcyLaw.Data.Models.MyDbModels;
+    using BankruptcyLaw.Services.Mapping;
+    using BankruptcyLaw.Web.ViewModels.Notes;
+
     public class NotesService : INotesService
     {
         private IDeletableEntityRepository<Note> notesRepository;
@@ -17,17 +18,26 @@ namespace BankruptcyLaw.Services.Data
             this.notesRepository = notesRepository;
         }
 
-        public async Task CreateNoteAsync(CreateNoteInputViewModel input)
+        public async Task CreateNoteAsync(NoteViewModel input)
         {
             var newNote = new Note()
             {
                 Content = input.Content,
                 CaseId = input.CaseId,
-                OriginalPoster = input.CreatorName,
+                OriginalPoster = input.OriginalPoster,
             };
 
             await this.notesRepository.AddAsync(newNote);
             await this.notesRepository.SaveChangesAsync();
+        }
+
+        public IEnumerable<NoteViewModel> GetNotesForCase(string caseId)
+        {
+            return this.notesRepository.AllAsNoTracking()
+                .Where(x => x.CaseId == caseId)
+                .To<NoteViewModel>()
+                .OrderByDescending(x => x.CreatedOn)
+                .ToList();
         }
     }
 }

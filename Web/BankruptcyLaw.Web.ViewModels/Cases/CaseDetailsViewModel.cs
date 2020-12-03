@@ -1,5 +1,6 @@
 ﻿namespace BankruptcyLaw.Web.ViewModels.Cases
 {
+    using BankruptcyLaw.Web.ViewModels.Notes;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -28,5 +29,7 @@
 
         [Display(Name = "Date Filed")]
         public DateTime DateFiled { get; set; }
+
+        public IEnumerable<NoteViewModel> Notes { get; set; }
     }
 }

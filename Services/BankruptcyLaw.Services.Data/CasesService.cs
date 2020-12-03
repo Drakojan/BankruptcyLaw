@@ -14,10 +14,12 @@
     public class CasesService : ICasesService
     {
         private IDeletableEntityRepository<Case> casesRepository;
+        private INotesService notesService;
 
-        public CasesService(IDeletableEntityRepository<Case> casesRepository)
+        public CasesService(IDeletableEntityRepository<Case> casesRepository, INotesService notesService)
         {
             this.casesRepository = casesRepository;
+            this.notesService = notesService;
         }
 
         public async Task<string> CreateCaseAsync(string clientId, CreateCaseInputViewModel input)
@@ -86,6 +88,8 @@
                     ClientId = x.ClientId,
                 })
                 .FirstOrDefault();
+
+            result.Notes = this.notesService.GetNotesForCase(caseId);
 
             return result;
         }
