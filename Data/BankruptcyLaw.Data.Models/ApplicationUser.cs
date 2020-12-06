@@ -5,6 +5,7 @@ namespace BankruptcyLaw.Data.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+
     using BankruptcyLaw.Data.Common.Models;
     using BankruptcyLaw.Data.Models.MyDbModels;
     using Microsoft.AspNetCore.Identity;
@@ -58,11 +59,6 @@ namespace BankruptcyLaw.Data.Models
         public int? AddressId { get; set; }
 
         public virtual Address Address { get; set; }
-
-        // I think I won't need the bools below. 
-        // public bool IsClient { get; set; } = true;
-
-        // public bool IsAttorney { get; set; } = false;
 
         public ICollection<Hearing> Hearings { get; set; }
 

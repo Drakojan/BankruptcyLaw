@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QB+A1O9VRjI7SEhrMlKu/BZ0/KaF1SJ9iX9GCsTMih/jzNGVHMCfSC3h3naOsXJNF5PKAXaqaiZyM3EbTBk40Q==",
+  "dgSpecHash": "MThEt7hBkV+4FS5fw3O+KVECrn8STrmApFw6mHAUCy2KfsRkSbIM6cH0D5gRQLqBLap+wPQCLvaCmyETxGgwzw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Web\\BankruptcyLaw.Web\\BankruptcyLaw.Web.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.10\\microsoft.aspnetcore.cryptography.keyderivation.3.1.10.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\3.1.9\\microsoft.aspnetcore.diagnostics.entityframeworkcore.3.1.9.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\ROG STRIX\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.0\\microsoft.aspnetcore.http.features.5.0.0.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\3.1.10\\microsoft.aspnetcore.identity.entityframeworkcore.3.1.10.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\3.1.10\\microsoft.aspnetcore.identity.ui.3.1.10.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\3.1.9\\microsoft.aspnetcore.mvc.razor.extensions.3.1.9.nupkg.sha512",
@@ -54,7 +55,7 @@
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\microsoft.extensions.logging\\3.1.10\\microsoft.extensions.logging.3.1.10.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.10\\microsoft.extensions.logging.abstractions.3.1.10.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\microsoft.extensions.options\\3.1.10\\microsoft.extensions.options.3.1.10.nupkg.sha512",
-    "C:\\Users\\ROG STRIX\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.10\\microsoft.extensions.primitives.3.1.10.nupkg.sha512",
+    "C:\\Users\\ROG STRIX\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\microsoft.identity.client\\3.0.8\\microsoft.identity.client.3.0.8.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\5.5.0\\microsoft.identitymodel.jsonwebtokens.5.5.0.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\microsoft.identitymodel.logging\\5.5.0\\microsoft.identitymodel.logging.5.5.0.nupkg.sha512",
@@ -133,6 +134,7 @@
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\system.io.compression.zipfile\\4.3.0\\system.io.compression.zipfile.4.3.0.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\ROG STRIX\\.nuget\\packages\\system.io.pipelines\\5.0.0\\system.io.pipelines.5.0.0.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",

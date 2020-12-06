@@ -18,6 +18,12 @@
 
         public string Extension { get; set; }
 
+        public string Size { get; set; }
+
+        public string AddedByUserId { get; set; }
+
+        public virtual ApplicationUser AddedByUser { get; set; }
+
         public string CaseId { get; set; }
 
         public virtual Case Case { get; set; }
