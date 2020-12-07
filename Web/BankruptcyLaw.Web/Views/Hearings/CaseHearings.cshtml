@@ -1,0 +1,41 @@
+﻿@model BankruptcyLaw.Web.ViewModels.Hearings.CaseHearingsViewModel
+@{
+    ViewData["Title"] = "Court Hearings";
+}
+
+<h1>@this.ViewData["Title"]</h1>
+<hr />
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Hearing number</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Date and Time</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Outcome</th>
+                        <th scope="col">Continued to Hearing #</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var h in Model.Hearings)
+                    {
+                        <tr>
+                            <td>@h.LocalId</td>
+                            <td>@h.Name</td>
+                            <td>@h.HearingDateAndTime.ToString()</td>
+                            <td>@h.Address</td>
+                            <td>@h.Outcome</td>
+                            <td>@h.ContinuedToLocalId</td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

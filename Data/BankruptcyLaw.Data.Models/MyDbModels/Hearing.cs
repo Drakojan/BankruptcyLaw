@@ -9,10 +9,17 @@
     {
         public DateTime HearingDateAndTime { get; set; }
 
-        [Required]
-        public Address Address { get; set; }
+        public string CaseId { get; set; }
+
+        public int AddressId { get; set; }
+
+        public virtual Address Address { get; set; }
 
         public HearingOutcome? Outcome { get; set; }
+
+        public string Name { get; set; }
+
+        public int LocalId { get; set; }
 
         public int? ContinuedHearingId { get; set; }
 
