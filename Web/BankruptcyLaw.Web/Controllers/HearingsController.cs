@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Security.Claims;
     using System.Threading.Tasks;
     using BankruptcyLaw.Services.Data;
     using Microsoft.AspNetCore.Mvc;
@@ -16,7 +17,7 @@
             this.hearingsService = hearingsService;
         }
 
-        public IActionResult Create(string caseId)
+        public IActionResult Create()
         {
 
             return this.View();
@@ -29,10 +30,13 @@
             return this.View(model);
         }
 
-        public IActionResult AttorneyHearings()
+        public IActionResult AttorneyAllHearings()
         {
+            var attorneyId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            return this.View();
+            var model = this.hearingsService.GetHearingsForAttorneyId(attorneyId);
+
+            return this.View(model);
         }
     }
 }

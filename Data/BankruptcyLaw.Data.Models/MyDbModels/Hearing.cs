@@ -9,6 +9,8 @@
     {
         public DateTime HearingDateAndTime { get; set; }
 
+        public virtual Case Case { get; set; }
+
         public string CaseId { get; set; }
 
         public int AddressId { get; set; }

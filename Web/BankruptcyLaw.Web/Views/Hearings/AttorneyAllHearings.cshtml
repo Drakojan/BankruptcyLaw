@@ -1,0 +1,52 @@
+﻿@model BankruptcyLaw.Web.ViewModels.Hearings.AllAttorneyCaseHearingsViewModel
+@{
+    ViewData["Title"] = "Your Court hearings";
+    int collapseCounter = 0;
+}
+
+<h1>@this.ViewData["Title"]</h1>
+<hr />
+
+<a type="button" class="btn btn-success" href="/Hearings/Create">Add a new Hearing</a>
+
+<div id="accordion">
+    @foreach (var date in Model.HearingsGroupedByDate)
+    {
+        {
+            collapseCounter++; //TODO : Might be a better idea to use regular collapse rather than accordion
+        }
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                    <button class="btn btn-link" data-toggle="collapse" data-target="@("#collapseOne" + collapseCounter)" aria-expanded="true" aria-controls="collapseOne">
+                        @date.Key.Date.ToString("yyyy-MM-dd")
+                    </button>
+                </h5>
+            </div>
+            <div id="@("collapseOne" + collapseCounter)" class="collapse" aria-labelledby="collapseOne" data-parent="#accordion">
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">CaseNumber</th>
+                                <th scope="col">Hearing Tittle</th>
+                                <th scope="col">Time of hearing</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var hearing in date.Value)
+                            {
+                                <tr>
+                                    <td>@hearing.CaseNumber</td>
+                                    <td>@hearing.Name</td>
+                                    <td>@hearing.HearingDateAndTime.ToString("HH:mm")</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    }
+</div>

@@ -1,0 +1,38 @@
+﻿@model BankruptcyLaw.Web.ViewModels.Cases.CreateCaseInputViewModel
+@{
+    ViewData["Title"] = "CreateCase";
+}
+
+<h1 class="text-center mt-2">Create a new Case</h1>
+<div class="row mt-4 mb-4">
+    <form class="col-6 col-lg-9" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="CaseNumber"></label>
+            <input asp-for="CaseNumber" class="form-control">
+            <span asp-validation-for="CaseNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="DateFiled"></label>
+            <input type="date" max="@DateTime.UtcNow.ToString("yyyy-MM-dd")" asp-for="DateFiled"
+                   class="form-control" value="@DateTime.UtcNow.ToString("yyyy-MM-dd")">
+            <span asp-validation-for="DateFiled" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="JudgeId"></label>
+            <select q asp-for="JudgeId" class="form-control" asp-items="judges"></select>
+            <span asp-validation-for="JudgeId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TrusteeId"></label>
+            <select asp-for="TrusteeId" class="form-control" asp-items="trustees"></select>
+            <span asp-validation-for="TrusteeId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input hidden asp-for="AttorneyId" class="form-control">
+            <span asp-validation-for="AttorneyId" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-block btn-primary">Create case</button>
+    </form>
+</div>
+

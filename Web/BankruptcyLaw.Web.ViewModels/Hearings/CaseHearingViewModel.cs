@@ -7,7 +7,7 @@
     using BankruptcyLaw.Data.Models.MyDbModels;
     using BankruptcyLaw.Services.Mapping;
 
-    public class HearingViewModel : IMapFrom<Hearing>, IHaveCustomMappings
+    public class CaseHearingViewModel : IMapFrom<Hearing>, IHaveCustomMappings
     {
         public string Address { get; set; }
 
@@ -25,7 +25,7 @@
 
         public void CreateMappings(IProfileExpression configuration)
         {
-            configuration.CreateMap<Hearing, HearingViewModel>()
+            configuration.CreateMap<Hearing, CaseHearingViewModel>()
                 .ForMember(x => x.Address, opt =>
                   opt.MapFrom(y => (y.Address.StreetAddress + ", " + y.Address.City)))
                 .ForMember(x => x.ContinuedToLocalId, opt =>

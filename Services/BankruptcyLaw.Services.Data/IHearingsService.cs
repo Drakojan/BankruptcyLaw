@@ -1,9 +1,11 @@
-﻿using BankruptcyLaw.Web.ViewModels.Hearings;
-
-namespace BankruptcyLaw.Services.Data
+﻿namespace BankruptcyLaw.Services.Data
 {
+    using BankruptcyLaw.Web.ViewModels.Hearings;
+
     public interface IHearingsService
     {
-        public CaseHearingsViewModel GetHearingsForCaseId(string caseId);
+        public AllCaseHearingsViewModel GetHearingsForCaseId(string caseId);
+
+        public AllAttorneyCaseHearingsViewModel GetHearingsForAttorneyId(string attorneyId);
     }
 }
