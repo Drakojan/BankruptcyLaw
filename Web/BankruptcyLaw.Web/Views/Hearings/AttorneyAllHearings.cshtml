@@ -30,6 +30,7 @@
                             <tr>
                                 <th scope="col">CaseNumber</th>
                                 <th scope="col">Hearing Tittle</th>
+                                <th scope="col">Hearing Address</th>
                                 <th scope="col">Time of hearing</th>
                             </tr>
                         </thead>
@@ -39,6 +40,7 @@
                                 <tr>
                                     <td>@hearing.CaseNumber</td>
                                     <td>@hearing.Name</td>
+                                    <td>@hearing.HearingAddress</td>
                                     <td>@hearing.HearingDateAndTime.ToString("HH:mm")</td>
                                 </tr>
                             }

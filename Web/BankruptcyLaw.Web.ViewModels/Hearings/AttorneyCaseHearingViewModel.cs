@@ -9,5 +9,7 @@
         public string Name { get; set; }
 
         public DateTime HearingDateAndTime { get; set; }
+
+        public string HearingAddress { get; set; }
     }
 }

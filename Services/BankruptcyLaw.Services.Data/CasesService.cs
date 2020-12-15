@@ -24,6 +24,13 @@
 
         public async Task<string> CreateCaseAsync(string clientId, CreateCaseInputViewModel input)
         {
+            var existingCase = this.casesRepository.AllAsNoTracking().FirstOrDefault(x => x.CaseNumber == input.CaseNumber);
+
+            if (existingCase != null)
+            {
+                throw new ArgumentException("A case with this Case Number already exists");
+            }
+
             var mapper = AutoMapperConfig.MapperInstance;
             var newCase = mapper.Map<Case>(input);
 

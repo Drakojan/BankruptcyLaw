@@ -4,6 +4,7 @@
     using System.Collections.Generic;
 
     using BankruptcyLaw.Data.Common.Models;
+    using BankruptcyLaw.Data.Models.Enums;
 
     public class Case : BaseDeletableModel<string>, IDeletableEntity
     {

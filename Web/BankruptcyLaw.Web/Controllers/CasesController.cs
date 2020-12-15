@@ -1,21 +1,24 @@
 ﻿namespace BankruptcyLaw.Web.Controllers
 {
+    using System;
     using System.Security.Claims;
     using System.Threading.Tasks;
+
     using BankruptcyLaw.Data.Models;
     using BankruptcyLaw.Services.Data;
     using BankruptcyLaw.Web.ViewModels;
     using BankruptcyLaw.Web.ViewModels.Cases;
+
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
     public class CasesController : BaseController
     {
-        private UserManager<ApplicationUser> userManager;
         private readonly IJudgesService judgesService;
         private readonly ITrusteesService trusteeService;
         private readonly ICasesService casesService;
+        private readonly UserManager<ApplicationUser> userManager;
 
         public CasesController(IJudgesService judgesService, ITrusteesService trusteeService, UserManager<ApplicationUser> userManager, ICasesService casesService)
         {
@@ -26,8 +29,17 @@
         }
 
         [Authorize(Roles = "Attorney, Administrator")]
-        public IActionResult Create()
+        public IActionResult Create(string message)
         {
+            if (message != null)
+            {
+                this.ViewData["message"] = message;
+            }
+            else
+            {
+                this.ViewData["message"] = null;
+            }
+
             var viewModel = new CreateCaseInputViewModel
             {
                 Judges = this.judgesService.GetJudgesNamesAndIds(),
@@ -47,11 +59,20 @@
         {
             if (!this.ModelState.IsValid)
             {
-                // TODO: see why validation is not working 
+                // TODO: see why validation is not working
                 return this.View("Error", new ErrorViewModel() { RequestId = null });
             }
 
-            string caseId = await this.casesService.CreateCaseAsync(clientId, input);
+            string caseId;
+
+            try
+            {
+                caseId = await this.casesService.CreateCaseAsync(clientId, input);
+            }
+            catch (ArgumentException ex)
+            {
+                return this.RedirectToAction("Create", new { message = ex.Message });
+            }
 
             return this.RedirectToAction("CaseDetails", new { clientId, caseId });
         }
@@ -62,7 +83,6 @@
             await this.casesService.DeleteCaseByIdAsync(caseId);
 
             return this.RedirectToAction("AllClientCases", new { clientName, clientId });
-
         }
 
         public IActionResult CaseDetails(string caseId)

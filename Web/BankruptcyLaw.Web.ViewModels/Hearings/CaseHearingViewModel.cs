@@ -3,13 +3,13 @@
     using System;
 
     using AutoMapper;
-    using BankruptcyLaw.Data.Models;
+    using BankruptcyLaw.Data.Models.Enums;
     using BankruptcyLaw.Data.Models.MyDbModels;
     using BankruptcyLaw.Services.Mapping;
 
     public class CaseHearingViewModel : IMapFrom<Hearing>, IHaveCustomMappings
     {
-        public string Address { get; set; }
+        public string HearingAddress { get; set; }
 
         public DateTime HearingDateAndTime { get; set; }
 
@@ -26,8 +26,6 @@
         public void CreateMappings(IProfileExpression configuration)
         {
             configuration.CreateMap<Hearing, CaseHearingViewModel>()
-                .ForMember(x => x.Address, opt =>
-                  opt.MapFrom(y => (y.Address.StreetAddress + ", " + y.Address.City)))
                 .ForMember(x => x.ContinuedToLocalId, opt =>
                   opt.MapFrom(y => y.ContinuedHearing.LocalId));
         }

@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Threading.Tasks;
 
+    using BankruptcyLaw.Data.Models.Enums;
     using BankruptcyLaw.Data.Models.MyDbModels;
 
     internal class MainDbInfoSeeder : ISeeder
@@ -58,39 +59,39 @@
                 await dbContext.Hearings.AddAsync(new Hearing
                 {
                     AttorneyId = "6f0d6e22-a86b-4998-bb7f-fde23e667076",
-                    AddressId = 6,
+                    HearingAddress = "75 Ted Turner Dr SW, Atlanta, GA 30303",
                     HearingDateAndTime = DateTime.UtcNow,
                     LocalId = 1,
                     Name = "Confirmation Hearing",
-                    Outcome = Models.HearingOutcome.Continued,
+                    Outcome = HearingOutcome.Continued,
                 });
 
                 await dbContext.Hearings.AddAsync(new Hearing
                 {
                     AttorneyId = "6f0d6e22-a86b-4998-bb7f-fde23e667076",
-                    AddressId = 6,
+                    HearingAddress = "75 Ted Turner Dr SW, Atlanta, GA 30303",
                     HearingDateAndTime = DateTime.UtcNow,
                     LocalId = 2,
                     Name = "Motion for relief by Bank of America",
-                    Outcome = Models.HearingOutcome.Granted,
+                    Outcome = HearingOutcome.Granted,
                 });
                 await dbContext.Hearings.AddAsync(new Hearing
                 {
                     AttorneyId = "6f0d6e22-a86b-4998-bb7f-fde23e667076",
-                    AddressId = 6,
+                    HearingAddress = "75 Ted Turner Dr SW, Atlanta, GA 30303",
                     HearingDateAndTime = DateTime.UtcNow,
                     LocalId = 3,
                     Name = "Contnued Confirmation Hearing",
-                    Outcome = Models.HearingOutcome.Granted,
+                    Outcome = HearingOutcome.Granted,
                 });
                 await dbContext.Hearings.AddAsync(new Hearing
                 {
                     AttorneyId = "6f0d6e22-a86b-4998-bb7f-fde23e667076",
-                    AddressId = 6,
+                    HearingAddress = "75 Ted Turner Dr SW, Atlanta, GA 30303",
                     HearingDateAndTime = DateTime.UtcNow,
                     LocalId = 4,
                     Name = "Motion to Incur",
-                    Outcome = Models.HearingOutcome.Denied,
+                    Outcome = HearingOutcome.Denied,
                 });
             }
         }

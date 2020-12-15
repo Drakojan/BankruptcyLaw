@@ -1,4 +1,4 @@
-﻿namespace BankruptcyLaw.Data.Models
+﻿namespace BankruptcyLaw.Data.Models.Enums
 {
     public enum CaseStatus
     {

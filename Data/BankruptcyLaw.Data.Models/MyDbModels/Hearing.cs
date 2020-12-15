@@ -4,6 +4,7 @@
     using System.ComponentModel.DataAnnotations;
 
     using BankruptcyLaw.Data.Common.Models;
+    using BankruptcyLaw.Data.Models.Enums;
 
     public class Hearing : BaseDeletableModel<int>
     {
@@ -13,12 +14,13 @@
 
         public string CaseId { get; set; }
 
-        public int AddressId { get; set; }
-
-        public virtual Address Address { get; set; }
+        [Required]
+        [MaxLength(200)]
+        public string HearingAddress { get; set; }
 
         public HearingOutcome? Outcome { get; set; }
 
+        [MaxLength(200)]
         public string Name { get; set; }
 
         public int LocalId { get; set; }
