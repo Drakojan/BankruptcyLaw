@@ -8,6 +8,8 @@
 
     public class ClientDocumentViewModel : IMapFrom<ClientDocument>, IHaveCustomMappings
     {
+        public string Id { get; set; }
+
         public string Name { get; set; }
 
         public string Size { get; set; }
