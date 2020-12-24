@@ -42,12 +42,28 @@
         </button>
     </div>
     <div class="col-lg-9" id="NotesBox">
-        @foreach (var note in Model.Notes)
-        {
-            //TODO: implement pagination for notes. After that is done the JavaScript may have to be adjusted too. 
-            <textarea style="resize:none" readonly class="form-control" rows="3">@note.Content</textarea>
-            <input readonly class="form-control" value="Note left by @note.OriginalPoster on @note.CreatedOn" />
-        }
+        <table data-order='[[ 2, "desc" ]]' id="notesTable" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Note</th>
+                    <th>Note left by</th>
+                    <th>Left on</th>
+                </tr>
+            </thead>
+            @foreach (var note in Model.Notes)
+            {
+                <tr>
+                    <td>
+                        @note.Content
+                    </td>
+                    <td>@note.OriginalPoster
+                    </td>
+                    <td> 
+                        @note.CreatedOn.ToString("MM/dd/yyyy h:mm tt")
+                    </td>
+                </tr>
+            }
+        </table>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -78,18 +94,32 @@
 <form method="post" id="antiForgeryForm"></form>
 @section Scripts {
     <script>
+        $(document).ready(function () {
+            $('#notesTable').DataTable();
+        });
+
+        //$.extend($.fn.dataTable.defaults, {
+        //    ordering: false
+        //});
+    </script>
+    <script>
         function CreateNote() {
             var newNoteContent = document.getElementById('newNote').value;
             document.getElementById('newNote').value = '';
 
-            var notesBox = document.getElementById('NotesBox')
+            //var notesBox = document.getElementById('NotesBox')
 
-            var newNote = document.createElement("textarea")
-            newNote.setAttribute("class", "form-control")
-            newNote.setAttribute("rows", "3")
-            newNote.value = newNoteContent
+            //var newNote = document.createElement("input")
+            //newNote.setAttribute("class", "form-control")
+            //newNote.setAttribute("rows", "3")
+            //newNote.value = newNoteContent
 
-            notesBox.prepend(newNote);
+            //notesBox.prepend(newNote);
+
+            var table = $('#notesTable').DataTable();
+
+           // table.row.add([newNoteContent, 32, ]).draw();
+
 
             var antiForgeryToken = $('#antiForgeryForm input[name=__RequestVerificationToken]').val();
             console.log(antiForgeryToken);
@@ -107,7 +137,7 @@
                     'X-CSRF-TOKEN': antiForgeryToken,
                     'content-type': 'application/json',
                 },
-            })
+            }).then(response=> console.log(response))
 
         }</script>>
 }

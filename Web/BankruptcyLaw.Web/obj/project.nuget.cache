@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MThEt7hBkV+4FS5fw3O+KVECrn8STrmApFw6mHAUCy2KfsRkSbIM6cH0D5gRQLqBLap+wPQCLvaCmyETxGgwzw==",
+  "dgSpecHash": "Zc7+O/Q8QzFcxqfI5nkM9bKFyy9oy9Qofp577Pjmt3uifequcDQCXFdr5SuB/Iv6zs1KTJQunF//Wxr/TlH5tg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ROG STRIX\\Desktop\\BankruptcyLaw_project\\Web\\BankruptcyLaw.Web\\BankruptcyLaw.Web.csproj",
   "expectedPackageFiles": [
@@ -76,7 +76,7 @@
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
-    "C:\\Users\\ROG STRIX\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\ROG STRIX\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\ROG STRIX\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

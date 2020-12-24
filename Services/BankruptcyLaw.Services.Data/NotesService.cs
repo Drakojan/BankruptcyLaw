@@ -18,7 +18,7 @@
             this.notesRepository = notesRepository;
         }
 
-        public async Task CreateNoteAsync(NoteViewModel input)
+        public async Task<Note> CreateNoteAsync(NoteViewModel input)
         {
             var newNote = new Note()
             {
@@ -29,6 +29,8 @@
 
             await this.notesRepository.AddAsync(newNote);
             await this.notesRepository.SaveChangesAsync();
+
+            return newNote;
         }
 
         public IEnumerable<NoteViewModel> GetNotesForCase(string caseId)

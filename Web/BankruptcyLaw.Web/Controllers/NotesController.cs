@@ -9,6 +9,7 @@
     using BankruptcyLaw.Web.ViewModels.Notes;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using Newtonsoft.Json;
 
     [ApiController]
     [Route("api/[controller]")]
@@ -28,8 +29,10 @@
             var username = this.User.Identity.Name;
             input.OriginalPoster = username;
 
-            await this.notesService.CreateNoteAsync(input);
-            return this.Ok();
+            var newNote = await this.notesService.CreateNoteAsync(input);
+            var response = JsonConvert.SerializeObject(newNote);
+            return this.Ok(response);
+
         }
     }
 }
