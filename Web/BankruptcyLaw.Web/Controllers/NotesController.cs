@@ -23,15 +23,20 @@
         }
 
         [HttpPost]
-        [Authorize(Roles="Attorney")]
-        public async Task<IActionResult> Create(NoteViewModel input)
+        [Authorize(Roles = "Attorney")]
+        public async Task<ActionResult<NoteCreationResponseModel>> Create(NoteViewModel input)
         {
             var username = this.User.Identity.Name;
             input.OriginalPoster = username;
 
             var newNote = await this.notesService.CreateNoteAsync(input);
-            var response = JsonConvert.SerializeObject(newNote);
-            return this.Ok(response);
+
+            return new NoteCreationResponseModel
+            {
+                Author = username,
+                Content = newNote.Content,
+                CreatedOn = newNote.CreatedOn.ToString("MM/dd/yyyy hh:mm tt").Trim(),
+            };
 
         }
     }

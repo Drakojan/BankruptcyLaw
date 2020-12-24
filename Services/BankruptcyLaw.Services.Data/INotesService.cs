@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
+
     using BankruptcyLaw.Data.Models.MyDbModels;
     using BankruptcyLaw.Web.ViewModels.Notes;
 

@@ -56,13 +56,14 @@
                     <td>
                         @note.Content
                     </td>
-                    <td>@note.OriginalPoster
-                    </td>
-                    <td> 
-                        @note.CreatedOn.ToString("MM/dd/yyyy h:mm tt")
-                    </td>
-                </tr>
-            }
+                    <td>
+                        @note.OriginalPoster
+                </td>
+                <td>
+                    @note.CreatedOn.ToString("MM/dd/yyyy hh:mm tt")
+                </td>
+            </tr>
+        }
         </table>
 
         <!-- Modal -->
@@ -119,25 +120,44 @@
             var table = $('#notesTable').DataTable();
 
            // table.row.add([newNoteContent, 32, ]).draw();
-
+            //[data.content, data.author, data.CreatedOn]
 
             var antiForgeryToken = $('#antiForgeryForm input[name=__RequestVerificationToken]').val();
             console.log(antiForgeryToken);
+
             var data = {
                 CaseId: "@Model.CaseId",
                 Content: newNoteContent,
                 CreatorName: '',
             }
-
-            fetch(`/api/Notes`, {
-
-                method: 'POST',
-                body: JSON.stringify(data),
+            $.ajax({
+                type: "POST",
+                url: "/api/Notes",
+                data: JSON.stringify(data),
                 headers: {
-                    'X-CSRF-TOKEN': antiForgeryToken,
-                    'content-type': 'application/json',
+                    'X-CSRF-TOKEN': antiForgeryToken
                 },
-            }).then(response=> console.log(response))
+                success: function (data) {
+                    debugger;
+                    console.log(data)
+                    table
+                        .row.add([data.content, data.author, data.createdOn])
+                        .draw();
+                },
+                contentType: 'application/json',
+            });
+            //fetch(`/api/Notes`, {
+
+            //    method: 'POST',
+            //    body: JSON.stringify(data),
+            //    headers: {
+            //        'X-CSRF-TOKEN': antiForgeryToken,
+            //        'content-type': 'application/json',
+            //    },
+            //}).then(x => x.json())
+            //    .then(data => {
+            //    console.log(data);
+            //});
 
         }</script>>
 }
