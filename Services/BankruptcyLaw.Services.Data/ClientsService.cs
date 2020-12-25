@@ -7,16 +7,21 @@
 
     using BankruptcyLaw.Data.Common.Repositories;
     using BankruptcyLaw.Data.Models;
+    using BankruptcyLaw.Data.Models.MyDbModels;
     using BankruptcyLaw.Services.Mapping;
     using BankruptcyLaw.Web.ViewModels.Clients;
 
     public class ClientsService : IClientsService
     {
         private IDeletableEntityRepository<ApplicationUser> usersRepository;
+        private readonly IDeletableEntityRepository<Case> casesRepository;
 
-        public ClientsService(IDeletableEntityRepository<ApplicationUser> usersRepository)
+        public ClientsService(
+            IDeletableEntityRepository<ApplicationUser> usersRepository,
+            IDeletableEntityRepository<Case> casesRepository)
         {
             this.usersRepository = usersRepository;
+            this.casesRepository = casesRepository;
         }
 
         public IEnumerable<T> GetAll<T>(int page, int itemsPerPage)
@@ -28,6 +33,15 @@
                             .To<T>()
                             .ToList();
             }
+        }
+
+        public ApplicationUser GetClientByCaseId(string caseId)
+        {
+            var clientId = this.casesRepository.AllAsNoTracking().Where(x => x.Id == caseId).FirstOrDefault().ClientId;
+
+            var client = this.usersRepository.AllAsNoTracking().Where(x => x.Id == clientId).FirstOrDefault();
+
+            return client;
         }
 
         public int GetClientsTotal()
