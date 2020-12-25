@@ -98,38 +98,22 @@
         $(document).ready(function () {
             $('#notesTable').DataTable();
         });
-
-        //$.extend($.fn.dataTable.defaults, {
-        //    ordering: false
-        //});
     </script>
     <script>
         function CreateNote() {
             var newNoteContent = document.getElementById('newNote').value;
             document.getElementById('newNote').value = '';
 
-            //var notesBox = document.getElementById('NotesBox')
-
-            //var newNote = document.createElement("input")
-            //newNote.setAttribute("class", "form-control")
-            //newNote.setAttribute("rows", "3")
-            //newNote.value = newNoteContent
-
-            //notesBox.prepend(newNote);
-
             var table = $('#notesTable').DataTable();
 
-           // table.row.add([newNoteContent, 32, ]).draw();
-            //[data.content, data.author, data.CreatedOn]
-
             var antiForgeryToken = $('#antiForgeryForm input[name=__RequestVerificationToken]').val();
-            console.log(antiForgeryToken);
 
             var data = {
                 CaseId: "@Model.CaseId",
                 Content: newNoteContent,
                 CreatorName: '',
             }
+
             $.ajax({
                 type: "POST",
                 url: "/api/Notes",
@@ -138,14 +122,13 @@
                     'X-CSRF-TOKEN': antiForgeryToken
                 },
                 success: function (data) {
-                    debugger;
-                    console.log(data)
                     table
                         .row.add([data.content, data.author, data.createdOn])
                         .draw();
                 },
                 contentType: 'application/json',
             });
+
             //fetch(`/api/Notes`, {
 
             //    method: 'POST',
@@ -154,9 +137,6 @@
             //        'X-CSRF-TOKEN': antiForgeryToken,
             //        'content-type': 'application/json',
             //    },
-            //}).then(x => x.json())
-            //    .then(data => {
-            //    console.log(data);
             //});
 
         }</script>>
