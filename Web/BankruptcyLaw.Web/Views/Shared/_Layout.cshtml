@@ -28,11 +28,17 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
                         </li>
+                        @if (this.User.IsInRole("Attorney"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/Clients/All">All Clients</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Hearings" asp-action="AttorneyAllHearings">My Hearings</a>
+                            </li>
+                        }
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Clients/All">All Clients</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Hearings" asp-action="AttorneyAllHearings">My Hearings</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Chat">Chat</a>
                         </li>
                     </ul>
                 </div>
@@ -58,6 +64,7 @@
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
     <script src="~/js/site.min.js" asp-append-version="true"></script>
+    <script src="~/lib/signalr/dist/browser/signalr.min.js"></script>
     <script src="~/lib/datatables/media/js/jquery.dataTables.min.js" asp-append-version="true"></script>
     @await this.RenderSectionAsync("Scripts", required: false)
 </body>

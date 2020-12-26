@@ -10,6 +10,7 @@
     using BankruptcyLaw.Services.Data;
     using BankruptcyLaw.Services.Mapping;
     using BankruptcyLaw.Services.Messaging;
+    using BankruptcyLaw.Web.Hubs;
     using BankruptcyLaw.Web.ViewModels;
 
     using Microsoft.AspNetCore.Builder;
@@ -47,6 +48,7 @@
                         options.MinimumSameSitePolicy = SameSiteMode.None;
                     });
 
+            services.AddSignalR();
             services.AddControllersWithViews(
                 options =>
                     {
@@ -114,6 +116,7 @@
             app.UseEndpoints(
                 endpoints =>
                     {
+                        endpoints.MapHub<ChatHub>("/Chat");
                         endpoints.MapControllerRoute("areaRoute", "{area:exists}/{controller=Home}/{action=Index}/{id?}");
                         endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
                         endpoints.MapRazorPages();
