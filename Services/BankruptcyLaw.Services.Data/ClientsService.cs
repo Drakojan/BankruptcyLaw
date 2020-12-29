@@ -44,6 +44,13 @@
             return client;
         }
 
+        public ApplicationUser GetClientById(string clientId)
+        {
+            var client = this.usersRepository.AllAsNoTracking().Where(x => x.Id == clientId).FirstOrDefault();
+
+            return client;
+        }
+
         public int GetClientsTotal()
         {
             return this.usersRepository.AllAsNoTracking().Where(x => x.Roles.Count == 1).Count();

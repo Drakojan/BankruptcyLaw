@@ -10,6 +10,8 @@
 
         public ApplicationUser GetClientByCaseId(string caseId);
 
+        public ApplicationUser GetClientById(string clientId);
+
         public int GetClientsTotal();
     }
 }

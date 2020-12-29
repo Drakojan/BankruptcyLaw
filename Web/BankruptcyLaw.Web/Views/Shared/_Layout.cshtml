@@ -1,4 +1,8 @@
 ﻿@using BankruptcyLaw.Common
+@using Microsoft.AspNetCore.Identity
+@using BankruptcyLaw.Data.Models
+
+@inject UserManager<ApplicationUser> userManager;
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,10 +40,17 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Hearings" asp-action="AttorneyAllHearings">My Hearings</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Chat">Chat</a>
+                            </li>
                         }
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Chat">Chat</a>
-                        </li>
+                        @if (this.User.IsInRole("Client"))
+                        {
+                            <li class="nav-item"> 
+                                <a class="nav-link text-dark" asp-controller="Cases" asp-action="HelpClientGetCases">My cases</a>
+                            </li>
+                        }
+
                     </ul>
                 </div>
             </div>

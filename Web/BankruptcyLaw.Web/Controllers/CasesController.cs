@@ -18,14 +18,16 @@
         private readonly IJudgesService judgesService;
         private readonly ITrusteesService trusteeService;
         private readonly ICasesService casesService;
+        private readonly IClientsService clientsService;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public CasesController(IJudgesService judgesService, ITrusteesService trusteeService, UserManager<ApplicationUser> userManager, ICasesService casesService)
+        public CasesController(IJudgesService judgesService, ITrusteesService trusteeService, UserManager<ApplicationUser> userManager, ICasesService casesService, IClientsService clientsService)
         {
             this.userManager = userManager;
             this.judgesService = judgesService;
             this.trusteeService = trusteeService;
             this.casesService = casesService;
+            this.clientsService = clientsService;
         }
 
         [Authorize(Roles = "Attorney, Administrator")]
@@ -85,6 +87,7 @@
             return this.RedirectToAction("AllClientCases", new { clientName, clientId });
         }
 
+        [Authorize]
         public IActionResult CaseDetails(string caseId)
         {
             var model = this.casesService.GetCaseById(caseId);
@@ -98,6 +101,18 @@
             AllClientCasesViewModel model = this.casesService.GetAllCasesForClient(clientId, clientName);
 
             return this.View(model);
+        }
+
+        public IActionResult HelpClientGetCases()
+        {
+            var clientId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var client = this.clientsService.GetClientById(clientId);
+
+            var clientName = client.FullName;
+
+            object routeValues = new { clientName, clientId };
+
+            return this.RedirectToAction("AllClientCases", routeValues);
         }
     }
 }
