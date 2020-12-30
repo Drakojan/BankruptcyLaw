@@ -23,9 +23,7 @@
         [NotMapped]
         public string FullName => this.FirstName + " " + this.LastName;
 
-        public int AddressId { get; set; }
-
-        public Address Address { get; set; }
+        public string Address { get; set; }
 
         [Required]
         [MaxLength(30)]

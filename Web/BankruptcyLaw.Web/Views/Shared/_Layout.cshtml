@@ -29,9 +29,18 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
-                        </li>
+
+                        @if (this.User.IsInRole("Administrator"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Administration"
+                                   asp-controller="Trustees" asp-action="Index">Trustees</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Administration"
+                                   asp-controller="Judges" asp-action="Index">Judges</a>
+                            </li>
+                        }
                         @if (this.User.IsInRole("Attorney"))
                         {
                             <li class="nav-item">
@@ -41,12 +50,12 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Hearings" asp-action="AttorneyAllHearings">My Hearings</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Chat">Chat</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Chat">Attorney chat</a>
                             </li>
                         }
-                        @if (this.User.IsInRole("Client"))
+                        @if (this.User.IsInRole("Client") && !this.User.IsInRole("Attorney") && !this.User.IsInRole("Administrator"))
                         {
-                            <li class="nav-item"> 
+                            <li class="nav-item">
                                 <a class="nav-link text-dark" asp-controller="Cases" asp-action="HelpClientGetCases">My cases</a>
                             </li>
                         }

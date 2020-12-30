@@ -40,7 +40,7 @@
                     LastName = "Vaughn",
                     Email = "TVaughn@trusteeTV.com",
                     Phone = "312-435-5679",
-                    AddressId = 3,
+                    Address = "55 E. Monroe, Suite 3850, Chicago, IL 60603",
                 });
 
                 await dbContext.Trustees.AddAsync(new Trustee
@@ -49,7 +49,7 @@
                     LastName = "Marshall",
                     Email = "MMarshall@trusteeMM.com",
                     Phone = "312-435-4323",
-                    AddressId = 4,
+                    Address = "224 S Michigan Ave #800, Chicago, IL 60604",
                 });
 
             }
