@@ -6,7 +6,7 @@
 
     public interface IAddressesService
     {
-        public AddressViewModel GetAddressInfo(string username);
+        public AddressViewModel GetAddressInfoByUsername(string username);
 
         public Task UpdateAddressInfo(string username, AddressViewModel input);
     }

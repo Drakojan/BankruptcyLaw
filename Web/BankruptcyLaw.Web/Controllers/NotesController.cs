@@ -35,7 +35,7 @@
 
             var clientEmail = this.clientService.GetClientByCaseId(input.CaseId).Email;
 
-            await this.sender.SendEmailAsync("drakojan@mail.bg", "BkAdministration", clientEmail, "New Note added to your case", string.Format(GlobalConstants.EmailInfo, newNote.Content));
+            await this.sender.SendEmailAsync("drakojan@mail.bg", "BkAdministration", clientEmail /*"nikolay.mitrev1@gmail.com"*/, "New Note added to your case", string.Format(GlobalConstants.EmailInfo, newNote.Content));
 
             // Use this email instead of client's email to test "nikolay.mitrev1@gmail.com"
             return new NoteCreationResponseModel

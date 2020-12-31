@@ -20,7 +20,7 @@
         {
             var username = this.User.Identity.Name;
 
-            AddressViewModel model = this.addressService.GetAddressInfo(username);
+            AddressViewModel model = this.addressService.GetAddressInfoByUsername(username);
 
             return this.View(model);
         }
