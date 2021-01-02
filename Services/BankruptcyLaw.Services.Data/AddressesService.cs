@@ -64,7 +64,7 @@
             user.Address.StreetAddress = input.StreetAddress;
             user.Address.City = input.City;
             user.Address.ZipCode = int.Parse(input.ZipCode);
-            ;
+
             await this.usersRepository.SaveChangesAsync();
         }
     }

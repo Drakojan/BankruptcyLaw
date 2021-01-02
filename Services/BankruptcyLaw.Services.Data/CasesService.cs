@@ -58,7 +58,8 @@
                     DateFiled = x.DateFiled,
                 })
                 .ToList()
-                .OrderByDescending(x => x.DateFiled);
+                .OrderByDescending(y => y.DateFiled)
+                .ToList();
 
             var result = new AllClientCasesViewModel()
             {

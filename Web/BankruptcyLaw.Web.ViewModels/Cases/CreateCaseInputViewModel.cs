@@ -1,11 +1,11 @@
 ﻿namespace BankruptcyLaw.Web.ViewModels.Cases
 {
-    using BankruptcyLaw.Data.Models.MyDbModels;
-    using BankruptcyLaw.Services.Mapping;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Text;
+
+    using BankruptcyLaw.Data.Models.MyDbModels;
+    using BankruptcyLaw.Services.Mapping;
 
     public class CreateCaseInputViewModel : IMapTo<Case>
     {
