@@ -25,8 +25,8 @@
             AutoMapperConfig.RegisterMappings(typeof(CreateCaseInputViewModel).GetTypeInfo().Assembly);
 
             var options = new DbContextOptionsBuilder<ApplicationDbContext>()
-    .UseInMemoryDatabase(databaseName: "TestCreateCaseDb")
-    .Options;
+                .UseInMemoryDatabase(databaseName: "TestCreateCaseDb")
+                .Options;
 
             using var dbContext = new ApplicationDbContext(options);
 
@@ -181,8 +181,8 @@
             AutoMapperConfig.RegisterMappings(typeof(CreateCaseInputViewModel).GetTypeInfo().Assembly);
 
             var options = new DbContextOptionsBuilder<ApplicationDbContext>()
-.UseInMemoryDatabase(databaseName: "TestGetCaseByIdDb")
-.Options;
+                .UseInMemoryDatabase(databaseName: "TestGetCaseByIdDb")
+                .Options;
 
             using var dbContext = new ApplicationDbContext(options);
 
