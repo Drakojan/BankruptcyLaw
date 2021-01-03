@@ -2,10 +2,6 @@
 {
     using BankruptcyLaw.Data.Models;
     using BankruptcyLaw.Services.Mapping;
-    using BankruptcyLaw.Web.ViewModels.Addresses;
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
 
     public class SingleClientViewModel : IMapFrom<ApplicationUser>
     {

@@ -22,7 +22,7 @@ namespace BankruptcyLaw.Data.Models
         }
 
         // Audit info
-        public DateTime CreatedOn { get; set; }
+        public virtual DateTime CreatedOn { get; set; }
 
         public DateTime? ModifiedOn { get; set; }
 
@@ -37,14 +37,6 @@ namespace BankruptcyLaw.Data.Models
 
         public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
 
-        // 1 to 1 link with attorney OR client entity saved here if I wanted to go back to using two separate entities.
-        // public string AttorneyUserId { get; set; }
-
-        // public virtual Attorney AttorneyUser { get; set; }
-
-        // public string ClientUserId { get; set; }
-
-        // public virtual Client ClientUser { get; set; }
         [Required]
         [MaxLength(50)]
         public string FirstName { get; set; }
