@@ -45,7 +45,6 @@
             }
             catch (ArgumentNullException ex)
             {
-
                 return this.RedirectToAction("Create", new { message = ex.Message });
             }
 

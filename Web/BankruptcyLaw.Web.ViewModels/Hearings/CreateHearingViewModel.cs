@@ -2,6 +2,7 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+
     using BankruptcyLaw.Data.Models.Enums;
     using BankruptcyLaw.Data.Models.MyDbModels;
     using BankruptcyLaw.Services.Mapping;

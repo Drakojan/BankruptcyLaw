@@ -30,14 +30,14 @@
         [Fact]
         public async Task UpdateAddressInfoWorksCorrectly()
         {
+            // Give a Unique name to the DB
             var options = new DbContextOptionsBuilder<ApplicationDbContext>()
                 .UseInMemoryDatabase(databaseName: "TestUpdateAddressDb")
-                // Give a Unique name to the DB
                 .Options;
 
             using var dbContext = new ApplicationDbContext(options);
-            // Initialize Testing Data
 
+            // Initialize Testing Data
             dbContext.Addresses.AddRange(
                 new Address()
                 {

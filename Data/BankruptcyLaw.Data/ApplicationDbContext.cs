@@ -46,11 +46,6 @@
 
         public DbSet<CreditorCase> CreditorCases { get; set; }
 
-        // uncoment below DbSets if you want to switch to using attornies and clients as separate entities.
-        // public DbSet<Client> Clients { get; set; }
-
-        // public DbSet<Attorney> Attorneys { get; set; }
-
         public override int SaveChanges() => this.SaveChanges(true);
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)

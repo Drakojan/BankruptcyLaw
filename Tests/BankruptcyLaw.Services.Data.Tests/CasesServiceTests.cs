@@ -78,7 +78,6 @@
                 });
 
             Assert.Equal(2, casesRepository.AllAsNoTracking().Count());
-
         }
 
         [Fact]

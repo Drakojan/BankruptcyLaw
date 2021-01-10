@@ -32,12 +32,11 @@
 
         public IActionResult Upload()
         {
-
             return this.View();
         }
 
         [HttpPost]
-        public async Task <IActionResult> Upload(UploadClientDocumentViewModel input)
+        public async Task<IActionResult> Upload(UploadClientDocumentViewModel input)
         {
             if (!this.ModelState.IsValid)
             {

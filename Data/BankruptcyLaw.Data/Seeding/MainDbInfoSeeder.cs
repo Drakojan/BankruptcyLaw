@@ -51,7 +51,6 @@
                     Phone = "312-435-4323",
                     Address = "224 S Michigan Ave #800, Chicago, IL 60604",
                 });
-
             }
 
             if (!dbContext.Hearings.Any())

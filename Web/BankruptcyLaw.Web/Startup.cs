@@ -1,6 +1,7 @@
 ﻿namespace BankruptcyLaw.Web
 {
     using System.Reflection;
+
     using BankruptcyLaw.Data;
     using BankruptcyLaw.Data.Common;
     using BankruptcyLaw.Data.Common.Repositories;
@@ -68,7 +69,7 @@
             services.AddScoped<IDbQueryRunner, DbQueryRunner>();
 
             // Application services
-            services.AddTransient<IEmailSender>(x=> new SendGridEmailSender(this.configuration["SendGrid:ApiKey"]));
+            services.AddTransient<IEmailSender>(x => new SendGridEmailSender(this.configuration["SendGrid:ApiKey"]));
             services.AddTransient<ISettingsService, SettingsService>();
             services.AddTransient<IJudgesService, JudgesService>();
             services.AddTransient<ICasesService, CasesService>();

@@ -1,8 +1,9 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
-
-namespace BankruptcyLaw.Data.Migrations
+﻿namespace BankruptcyLaw.Data.Migrations
 {
+    using System;
+
+    using Microsoft.EntityFrameworkCore.Migrations;
+
     public partial class CleanInitialMigrationWithMyDbModels : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,7 +21,7 @@ namespace BankruptcyLaw.Data.Migrations
                     StreetAddress = table.Column<string>(maxLength: 100, nullable: false),
                     City = table.Column<string>(maxLength: 50, nullable: false),
                     State = table.Column<string>(maxLength: 30, nullable: false),
-                    ZipCode = table.Column<int>(maxLength: 30, nullable: false)
+                    ZipCode = table.Column<int>(maxLength: 30, nullable: false),
                 },
                 constraints: table =>
                 {
@@ -38,7 +39,7 @@ namespace BankruptcyLaw.Data.Migrations
                     CreatedOn = table.Column<DateTime>(nullable: false),
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
-                    DeletedOn = table.Column<DateTime>(nullable: true)
+                    DeletedOn = table.Column<DateTime>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -59,7 +60,7 @@ namespace BankruptcyLaw.Data.Migrations
                     LastName = table.Column<string>(maxLength: 50, nullable: false),
                     Phone = table.Column<string>(maxLength: 30, nullable: false),
                     Email = table.Column<string>(nullable: true),
-                    CourtRoom = table.Column<string>(nullable: true)
+                    CourtRoom = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -77,7 +78,7 @@ namespace BankruptcyLaw.Data.Migrations
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(nullable: true),
-                    Value = table.Column<string>(nullable: true)
+                    Value = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -112,7 +113,7 @@ namespace BankruptcyLaw.Data.Migrations
                     FirstName = table.Column<string>(maxLength: 50, nullable: false),
                     LastName = table.Column<string>(maxLength: 50, nullable: false),
                     Phone = table.Column<string>(maxLength: 30, nullable: false),
-                    AddressId = table.Column<int>(nullable: false)
+                    AddressId = table.Column<int>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -138,7 +139,7 @@ namespace BankruptcyLaw.Data.Migrations
                     Name = table.Column<string>(nullable: false),
                     AddressId = table.Column<int>(nullable: false),
                     Phone = table.Column<string>(maxLength: 30, nullable: true),
-                    Email = table.Column<string>(nullable: true)
+                    Email = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -165,7 +166,7 @@ namespace BankruptcyLaw.Data.Migrations
                     LasttName = table.Column<string>(maxLength: 50, nullable: false),
                     AddressId = table.Column<int>(nullable: true),
                     Phone = table.Column<string>(maxLength: 30, nullable: false),
-                    Email = table.Column<string>(nullable: true)
+                    Email = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -186,7 +187,7 @@ namespace BankruptcyLaw.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     RoleId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
-                    ClaimValue = table.Column<string>(nullable: true)
+                    ClaimValue = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -207,7 +208,7 @@ namespace BankruptcyLaw.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserId = table.Column<string>(nullable: false),
                     ClaimType = table.Column<string>(nullable: true),
-                    ClaimValue = table.Column<string>(nullable: true)
+                    ClaimValue = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -227,7 +228,7 @@ namespace BankruptcyLaw.Data.Migrations
                     LoginProvider = table.Column<string>(nullable: false),
                     ProviderKey = table.Column<string>(nullable: false),
                     ProviderDisplayName = table.Column<string>(nullable: true),
-                    UserId = table.Column<string>(nullable: false)
+                    UserId = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -245,7 +246,7 @@ namespace BankruptcyLaw.Data.Migrations
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
-                    RoleId = table.Column<string>(nullable: false)
+                    RoleId = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -271,7 +272,7 @@ namespace BankruptcyLaw.Data.Migrations
                     UserId = table.Column<string>(nullable: false),
                     LoginProvider = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: false),
-                    Value = table.Column<string>(nullable: true)
+                    Value = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -293,7 +294,7 @@ namespace BankruptcyLaw.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
-                    AplicationUserId = table.Column<string>(nullable: false)
+                    AplicationUserId = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -316,7 +317,7 @@ namespace BankruptcyLaw.Data.Migrations
                     IsDeleted = table.Column<bool>(nullable: false),
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     SSN = table.Column<string>(nullable: true),
-                    AplicationUserId = table.Column<string>(nullable: false)
+                    AplicationUserId = table.Column<string>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -344,7 +345,7 @@ namespace BankruptcyLaw.Data.Migrations
                     TrusteeId = table.Column<int>(nullable: false),
                     CaseNumber = table.Column<string>(nullable: true),
                     DateFiled = table.Column<DateTime>(nullable: false),
-                    CaseStatus = table.Column<int>(nullable: false)
+                    CaseStatus = table.Column<int>(nullable: false),
                 },
                 constraints: table =>
                 {
@@ -386,7 +387,7 @@ namespace BankruptcyLaw.Data.Migrations
                     DeletedOn = table.Column<DateTime>(nullable: true),
                     Name = table.Column<string>(maxLength: 200, nullable: false),
                     Extension = table.Column<string>(nullable: true),
-                    CaseId = table.Column<string>(nullable: true)
+                    CaseId = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -412,7 +413,7 @@ namespace BankruptcyLaw.Data.Migrations
                     DateIssued = table.Column<DateTime>(nullable: false),
                     Extension = table.Column<string>(nullable: true),
                     CaseId = table.Column<string>(nullable: true),
-                    AddedByUserId = table.Column<string>(nullable: true)
+                    AddedByUserId = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -440,7 +441,7 @@ namespace BankruptcyLaw.Data.Migrations
                     ModifiedOn = table.Column<DateTime>(nullable: true),
                     CreditorId = table.Column<int>(nullable: false),
                     CaseId = table.Column<int>(nullable: false),
-                    CaseId1 = table.Column<string>(nullable: true)
+                    CaseId1 = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -474,7 +475,7 @@ namespace BankruptcyLaw.Data.Migrations
                     Outcome = table.Column<int>(nullable: true),
                     ContinuedHearingId = table.Column<int>(nullable: true),
                     AttorneyId = table.Column<string>(nullable: true),
-                    CaseId = table.Column<string>(nullable: true)
+                    CaseId = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {
@@ -517,7 +518,7 @@ namespace BankruptcyLaw.Data.Migrations
                     Content = table.Column<string>(nullable: false),
                     OriginalPoster = table.Column<string>(nullable: false),
                     RedactionPoster = table.Column<string>(nullable: true),
-                    CaseId = table.Column<string>(nullable: true)
+                    CaseId = table.Column<string>(nullable: true),
                 },
                 constraints: table =>
                 {

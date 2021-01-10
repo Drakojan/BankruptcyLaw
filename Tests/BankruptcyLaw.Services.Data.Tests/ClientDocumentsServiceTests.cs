@@ -108,7 +108,7 @@
         [Fact]
         public void GetAllClientDocumentsForCaseTests()
         {
-            AutoMapperConfig.RegisterMappings(typeof(CreateCaseInputViewModel).GetTypeInfo().Assembly);
+            AutoMapperConfig.RegisterMappings(typeof(ClientDocumentViewModel).GetTypeInfo().Assembly);
 
             var clientDocumentsList = new List<ClientDocument>()
             {

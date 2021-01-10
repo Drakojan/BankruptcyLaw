@@ -17,15 +17,15 @@
         private readonly IDeletableEntityRepository<Setting> repository;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public RoleManager<ApplicationRole> roleManager { get; }
-
         public SettingsController(ISettingsService settingsService, IDeletableEntityRepository<Setting> repository, UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager)
         {
             this.settingsService = settingsService;
             this.repository = repository;
             this.userManager = userManager;
-            this.roleManager = roleManager;
+            this.RoleManager = roleManager;
         }
+
+        public RoleManager<ApplicationRole> RoleManager { get; }
 
         public IActionResult Index()
         {
@@ -48,22 +48,10 @@
         // playing around
         public async Task<IActionResult> Attorney()
         {
-            //var result = await this.userManager.CreateAsync(
-            //    new ApplicationUser()
-            //    {
-            //        UserName = "niki",
-            //        Email = "niki@mail.bg",
-            //    }, "Nekradss92");
-
-
-            //var result2 = this.roleManager.CreateAsync(new ApplicationRole()
-            //{
-            //    Name = "Attorney",
-            //});
             var user = await this.userManager.GetUserAsync(this.User);
             var result = await this.userManager.AddToRoleAsync(user, "Attorney");
-            // await this.userManager.RemoveFromRoleAsync(user, "Client");
 
+            // await this.userManager.RemoveFromRoleAsync(user, "Client");
             return this.Json(result);
         }
 

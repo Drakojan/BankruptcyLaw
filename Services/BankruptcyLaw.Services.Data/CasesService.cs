@@ -102,7 +102,7 @@
             return result;
         }
 
-        // pagination prospect
+        // not implemented or test services
         public IEnumerable<AllClientCasesViewModel> GetAll(int page, int itemsPerPage)
         {
             var result = this.casesRepository.AllAsNoTracking()
@@ -110,6 +110,15 @@
                 .Skip((page - 1) * itemsPerPage).Take(itemsPerPage);
 
             throw new NotImplementedException();
+        }
+
+        public void SelectManyDemoService()
+        {
+            var listOfNotesWithCaseNumbers = this.casesRepository.AllAsNoTracking()
+                .SelectMany(
+                x => x.Notes,
+                (parent, child) => new { parent.CaseNumber, child.Content })
+                .ToList();
         }
     }
 }

@@ -31,10 +31,10 @@ namespace BankruptcyLaw.Web.Areas.Identity.Pages.Account
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
-            _logger = logger;
-            _emailSender = emailSender;
+            this._userManager = userManager;
+            this._signInManager = signInManager;
+            this._logger = logger;
+            this._emailSender = emailSender;
         }
 
         [BindProperty]
@@ -85,15 +85,15 @@ namespace BankruptcyLaw.Web.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
-            ReturnUrl = returnUrl;
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            this.ReturnUrl = returnUrl;
+            this.ExternalLogins = (await this._signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-            if (ModelState.IsValid)
+            this.ExternalLogins = (await this._signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            if (this.ModelState.IsValid)
             {
                 var user = new ApplicationUser { 
                     UserName = Input.Email, 
@@ -138,7 +138,7 @@ namespace BankruptcyLaw.Web.Areas.Identity.Pages.Account
             }
 
             // If we got this far, something failed, redisplay form
-            return Page();
+            return this.Page();
         }
     }
 }

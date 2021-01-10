@@ -1,10 +1,10 @@
 ﻿namespace BankruptcyLaw.Web.ViewModels.Cases
 {
-    using BankruptcyLaw.Web.ViewModels.Notes;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Text;
+
+    using BankruptcyLaw.Web.ViewModels.Notes;
 
     public class CaseDetailsViewModel
     {

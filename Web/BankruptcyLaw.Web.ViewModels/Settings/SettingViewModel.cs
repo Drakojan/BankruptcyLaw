@@ -1,9 +1,8 @@
 ﻿namespace BankruptcyLaw.Web.ViewModels.Settings
 {
+    using AutoMapper;
     using BankruptcyLaw.Data.Models;
     using BankruptcyLaw.Services.Mapping;
-
-    using AutoMapper;
 
     public class SettingViewModel : IMapFrom<Setting>, IHaveCustomMappings
     {

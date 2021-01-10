@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: HostingStartup(typeof(BankruptcyLaw.Web.Areas.Identity.IdentityHostingStartup))]
+
 namespace BankruptcyLaw.Web.Areas.Identity
 {
     public class IdentityHostingStartup : IHostingStartup

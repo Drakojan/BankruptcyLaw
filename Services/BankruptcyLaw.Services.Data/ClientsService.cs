@@ -37,8 +37,6 @@
         {
             var clientId = this.casesRepository.AllAsNoTracking().Where(x => x.Id == caseId).FirstOrDefault().ClientId;
 
-            // var client = this.usersRepository.AllAsNoTracking().Where(x => x.Id == clientId).FirstOrDefault();
-
             var client = this.GetClientById(clientId);
 
             return client;
